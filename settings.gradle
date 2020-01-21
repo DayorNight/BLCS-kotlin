@@ -1,0 +1,2 @@
+include ':app', ':BLCS'
+rootProject.name='BLcs'
