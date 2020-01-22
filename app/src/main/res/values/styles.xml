@@ -1,11 +1,29 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppThemeBg"  parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/ic_launcher_background</item>
     </style>
 
+    <style name="AppTheme"  parent="Theme.AppCompat.Light.NoActionBar">
+        <!--状态栏底色-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--导航栏底色-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--导航栏上的标题颜色-->
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <!--Activity窗口的颜色-->
+        <!--按钮选中或者点击获得焦点后的颜色-->
+        <item name="colorAccent">@android:color/darker_gray</item>
+        <!--和 colorAccent相反，正常状态下按钮的颜色-->
+        <!--<item name="colorControlNormal">#ffffff</item>-->
+        <!--Button按钮正常状态颜色-->
+        <item name="colorButtonNormal">@color/accent_material_light</item>
+        <!--EditText 输入框中字体的颜色-->
+        <!--<item name="editTextColor">@android:color/white</item>-->
+        <!--设置窗体切换动画-->
+<!--        <item name="android:windowAnimationStyle">@style/activityAnimation</item>-->
+        <!-- Customize your theme here. -->
+    </style>
 </resources>

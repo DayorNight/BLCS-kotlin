@@ -1,0 +1,28 @@
+<resources>
+    <style name="match_wrap" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="wrap_wrap" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="wrap_match" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="match_match" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+<!--  LinearLayout  -->
+    <style name="lin_ver" parent="match_match">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="lin_hor" parent="match_wrap">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+</resources>

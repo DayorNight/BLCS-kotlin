@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.SplashActivity"
+    style="@style/lin_ver">
+
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        style="@style/match_match"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/login_navigation"
+         />
+</LinearLayout>

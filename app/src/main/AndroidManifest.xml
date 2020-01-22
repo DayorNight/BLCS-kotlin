@@ -9,13 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <!--主页-->
+        <activity android:name=".activity.MainActivity"/>
+        <!--欢迎-->
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/AppThemeBg" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--个人信息-->
+        <activity android:name=".activity.PersonInfoActivity" />
+        <!--设置-->
+        <activity android:name=".activity.SettingActivity" />
     </application>
 
 </manifest>

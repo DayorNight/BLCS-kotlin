@@ -38,7 +38,7 @@ object XMLUtil {
      * @return      返回解析的对应实体文件
      */
     var tagName:String? = null
-    fun <T> xmlToObject(xml: String, clazz: Class<T>, tagEntity: String): List<T>? {
+    fun <T : Any> xmlToObject(xml: String, clazz: Class<T>, tagEntity: String): List<T>? {
         var list: MutableList<T>? = null
         val xmlPullParser = Xml.newPullParser()
         val inputStream = ByteArrayInputStream(xml.toByteArray())
@@ -101,7 +101,7 @@ object XMLUtil {
      * < /person ><br></br>
      * @return  返回属性值组成的List对象集合。
      */
-    fun <T> attributeToObject(xml: String, clazz: Class<T>, tagName: String): List<T>? {
+    fun <T : Any> attributeToObject(xml: String, clazz: Class<T>, tagName: String): List<T>? {
         if (TextUtils.isEmpty(tagName)) return null
         var list: MutableList<T>? = null
         val xmlPullParser = Xml.newPullParser()

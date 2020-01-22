@@ -1,0 +1,17 @@
+ext {
+    As = [
+            compileSdkVersion: 29,
+            applicationId    : "com.blcs.xxx",
+            minSdkVersion    : 19,
+            versionCode      : 1,
+            versionName      : "1.0.0",
+    ]
+    Vs = [
+//            Constraint            : "1.1.3",
+    ]
+    SupportVersion = "28.0.0"
+
+    Dp = [
+//            SupportV4             : "com.android.support:support-v4:$SupportVersion",
+    ]
+}

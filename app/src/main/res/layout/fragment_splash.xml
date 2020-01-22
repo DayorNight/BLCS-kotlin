@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/match_match">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_splash"
+        style="@style/match_match"
+        tools:context=".fragment.SplashFragment" />
+
+    <LinearLayout
+        android:layout_gravity="center|bottom"
+        style="@style/lin_hor">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"/>
+    </LinearLayout>
+</FrameLayout>

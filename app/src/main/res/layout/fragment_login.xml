@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/lin_ver"
+    android:gravity="center"
+    tools:context=".fragment.LoginFragment">
+
+    <TextView
+        style="@style/wrap_wrap"
+        android:text="登录界面" />
+
+</LinearLayout>
