@@ -8,12 +8,8 @@
         style="@style/match_match"
         tools:context=".fragment.SplashFragment" />
 
-    <LinearLayout
-        android:layout_gravity="center|bottom"
-        style="@style/lin_hor">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"/>
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_gravity="center|bottom"-->
+<!--        style="@style/lin_hor">-->
+<!--    </LinearLayout>-->
 </FrameLayout>
