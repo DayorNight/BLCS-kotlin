@@ -1,10 +1,9 @@
 package com.blcs.xxx.fragment
 
-
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.navigation.fragment.findNavController
 import com.blcs.common.Base.BaseFragment
 import com.blcs.xxx.R
 import kotlinx.android.synthetic.main.fragment_splash.*
@@ -15,7 +14,11 @@ import kotlinx.android.synthetic.main.fragment_splash.*
 class SplashFragment : BaseFragment() {
 
     override fun initUI() {
-        vp_splash.adapter = MyAdapter(fragmentManager!!)
+        view?.postDelayed({
+            fragmentManager?.let {
+                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            }
+        },3000)
     }
 
     override fun setLayout() = R.layout.fragment_splash

@@ -6,22 +6,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.blcs.common.XStatusBar
 
 /**
  * A simple [Fragment] subclass.
  */
 abstract class BaseFragment : Fragment() {
-    var mView: View?=null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (mView==null){
-            mView = inflater.inflate(setLayout(), container, false)
-            initUI()
-        }
-        return mView
+        return inflater.inflate(setLayout(), container, false)
     }
     abstract fun setLayout():Int
     abstract fun initUI()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUI()
+    }
 }

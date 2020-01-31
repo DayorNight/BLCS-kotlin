@@ -6,6 +6,8 @@ import com.blcs.common.Base.BaseApplication
 /**
  * A simple [Fragment] subclass.
  */
-abstract class MyApp : BaseApplication() {
-
+class MyApp : BaseApplication() {
+    override fun onCreate() {
+        super.onCreate()
+    }
 }

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.blcs.xxx.fragment.SplashFragment"
-        android:label="fragment_splash"
+        android:label="splash"
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
@@ -17,6 +17,15 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.blcs.xxx.fragment.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        android:label="login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.blcs.xxx.fragment.RegisterFragment"
+        android:label="register"
+        tools:layout="@layout/fragment_register" />
 </navigation>

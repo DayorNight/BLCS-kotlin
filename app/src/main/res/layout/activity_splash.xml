@@ -14,5 +14,4 @@
         app:navGraph="@navigation/login_navigation"
          />
 
-
 </LinearLayout>

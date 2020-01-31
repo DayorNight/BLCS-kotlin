@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/match_match">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vp_splash"
-        style="@style/match_match"
-        tools:context=".fragment.SplashFragment" />
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/vp_splash"-->
+<!--        style="@style/match_match"-->
+<!--        tools:context=".fragment.SplashFragment" />-->
 
 <!--    <LinearLayout-->
 <!--        android:layout_gravity="center|bottom"-->
 <!--        style="@style/lin_hor">-->
 <!--    </LinearLayout>-->
+
 </FrameLayout>

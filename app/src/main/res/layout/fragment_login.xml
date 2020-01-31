@@ -2,11 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/lin_ver"
+    android:background="@android:color/white"
     android:gravity="center"
     tools:context=".fragment.LoginFragment">
 
     <TextView
         style="@style/wrap_wrap"
         android:text="登录界面" />
+
+    <Button
+        android:id="@+id/btn_to_register"
+        style="@style/wrap_wrap"
+        android:text="注册" />
 
 </LinearLayout>
