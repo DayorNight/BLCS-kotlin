@@ -14,5 +14,9 @@
         android:id="@+id/btn_to_register"
         style="@style/wrap_wrap"
         android:text="注册" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

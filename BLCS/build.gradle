@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -20,17 +21,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'androidx.appcompat:appcompat:1.1.0'
-    api 'androidx.core:core-ktx:1.1.0'
-    api 'androidx.constraintlayout:constraintlayout:1.1.3'
-    api 'me.jessyan:autosize:1.2.0'
-    testApi 'junit:junit:4.12'
-    androidTestApi 'androidx.test.ext:junit:1.1.1'
-    androidTestApi 'androidx.test.espresso:espresso-core:3.2.0'
+    api Dp.kotlin
+    api Dp.appcompat
+    api Dp.core
+    api Dp.constraintlayout
+    api Dp.autosize
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    api Dp.room
+    kapt Dp.roomCompiler
+    api Dp.navigation
+    api Dp.navigationKtx
+    api Dp.rxjava3
+    api Dp.lifecycle
+    api Dp.paging
 }
