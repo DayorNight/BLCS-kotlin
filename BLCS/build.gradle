@@ -25,7 +25,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    dataBinding{
+        enabled = true
+    }
 }
 
 dependencies {
@@ -45,4 +47,6 @@ dependencies {
     api Dp.rxjava3
     api Dp.lifecycle
     api Dp.paging
+    api Dp.leakcanary
+    api Dp.magicIndicator
 }

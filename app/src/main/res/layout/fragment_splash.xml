@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/match_match">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.fragment.app.FragmentStatePagerAdapter"/>
+        <variable name="isShow" type="Boolean"/>
+        <variable name="adapter" type="FragmentStatePagerAdapter"/>
+    </data>
+    <FrameLayout style="@style/match_match">
 
-<!--    <androidx.viewpager.widget.ViewPager-->
-<!--        android:id="@+id/vp_splash"-->
-<!--        style="@style/match_match"-->
-<!--        tools:context=".fragment.SplashFragment" />-->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_splash"
+            style="@style/match_match"
+            android:background="@android:color/white"
+            android:visibility="@{isShow ? View.VISIBLE : View.GONE}"
+            tools:context=".fragment.SplashFragment"
+            app:viewPageAdapter="@{adapter}"
+            />
 
-<!--    <LinearLayout-->
-<!--        android:layout_gravity="center|bottom"-->
-<!--        style="@style/lin_hor">-->
-<!--    </LinearLayout>-->
-
-</FrameLayout>
+        <net.lucode.hackware.magicindicator.MagicIndicator
+            android:id="@+id/magic_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/space_line3" />
+    </FrameLayout>
+</layout>

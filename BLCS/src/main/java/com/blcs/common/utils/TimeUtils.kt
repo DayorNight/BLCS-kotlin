@@ -1,7 +1,6 @@
-package com.blcs.common
+package com.blcs.common.utils
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.annotation.IntDef
 import androidx.annotation.NonNull
 import java.lang.annotation.Retention
@@ -28,7 +27,8 @@ object TimeUtils{
 
     var DATE_FORMAT = "yyyy-MM-dd HH:mm:ss"
     private val SDF_THREAD_LOCAL = ThreadLocal<SimpleDateFormat>()
-    private fun getDefaultFormat() = getDateFormat("yyyy-MM-dd HH:mm:ss")
+    private fun getDefaultFormat() =
+        getDateFormat("yyyy-MM-dd HH:mm:ss")
     /**
      * 系统计时开始时间
      */
@@ -48,26 +48,47 @@ object TimeUtils{
     val LEVEL_MINUTE = 4
     val LEVEL_SECOND = 5
     val LEVELS =
-        intArrayOf(LEVEL_YEAR, LEVEL_MONTH, LEVEL_DAY, LEVEL_HOUR, LEVEL_MINUTE, LEVEL_SECOND)
+        intArrayOf(
+            LEVEL_YEAR,
+            LEVEL_MONTH,
+            LEVEL_DAY,
+            LEVEL_HOUR,
+            LEVEL_MINUTE,
+            LEVEL_SECOND
+        )
     val NAME_YEAR = "年"
     val NAME_MONTH = "月"
     val NAME_DAY = "日"
     val NAME_HOUR = "时"
     val NAME_MINUTE = "分"
     val NAME_SECOND = "秒"
-    val LEVEL_NAMES = arrayOf(NAME_YEAR, NAME_MONTH, NAME_DAY, NAME_HOUR, NAME_MINUTE, NAME_SECOND)
+    val LEVEL_NAMES = arrayOf(
+        NAME_YEAR,
+        NAME_MONTH,
+        NAME_DAY,
+        NAME_HOUR,
+        NAME_MINUTE,
+        NAME_SECOND
+    )
     /**
      * 获取当前时间 Long  Date()  String
      */
     fun getNowTimes() = System.currentTimeMillis()
     fun getNowDate() = Date()
-    fun getNowString() = long2String(System.currentTimeMillis(), getDefaultFormat())
+    fun getNowString() = long2String(
+        System.currentTimeMillis(),
+        getDefaultFormat()
+    )
 
     /**
      *  时间转化Long to String
      *  @param pattern  YYYY-MM-DD HH:mm:ss
      */
-    fun long2String(@NonNull time: Long, @NonNull pattern: String) = long2String(time, getDateFormat(pattern))
+    fun long2String(@NonNull time: Long, @NonNull pattern: String) =
+        long2String(
+            time,
+            getDateFormat(pattern)
+        )
 
     fun long2String(time: Long, @NonNull format: DateFormat) = format.format(Date(time))
 
@@ -86,7 +107,10 @@ object TimeUtils{
      * String to Long
      * @param time  YYYY-MM-DD HH:mm:ss
      */
-    fun string2Long(time: String) = string2Long(time, getDefaultFormat())
+    fun string2Long(time: String) = string2Long(
+        time,
+        getDefaultFormat()
+    )
 
     fun string2Long(time: String, @NonNull format: DateFormat) = format.parse(time).time
 
@@ -98,7 +122,10 @@ object TimeUtils{
     /**
      * date to string
      */
-    fun date2String(date: Date) = date2String(date, getDefaultFormat())
+    fun date2String(date: Date) = date2String(
+        date,
+        getDefaultFormat()
+    )
 
     fun date2String(date: Date, @NonNull format: DateFormat) =  format.format(date)
 
@@ -127,14 +154,25 @@ object TimeUtils{
      *              </ul>
      * @return the time span, in unit
      */
-    fun getTimeSpan(time1: String, time2: String, @TimeConstants.Unit unit: Int) = getTimeSpan(time1, time2, getDefaultFormat(), unit)
+    fun getTimeSpan(time1: String, time2: String, @TimeConstants.Unit unit: Int) =
+        getTimeSpan(
+            time1,
+            time2,
+            getDefaultFormat(),
+            unit
+        )
 
     fun getTimeSpan(
         time1: String,
         time2: String,
         @NonNull format: DateFormat,
         @TimeConstants.Unit unit: Int
-    ) = millis2TimeSpan(string2Long(time1, format) - string2Long(time2, format), unit)
+    ) = millis2TimeSpan(
+        string2Long(
+            time1,
+            format
+        ) - string2Long(time2, format), unit
+    )
 
     fun millis2TimeSpan(millis: Long, @TimeConstants.Unit unit: Int) = millis / unit
 
@@ -154,7 +192,13 @@ object TimeUtils{
      * @return the fit time span
      */
     fun getFitTimeSpan(time1: String,time2: String, precision: Int ): String? {
-        val delta = string2Long(time1, getDefaultFormat()) - string2Long(time2, getDefaultFormat())
+        val delta = string2Long(
+            time1,
+            getDefaultFormat()
+        ) - string2Long(
+            time2,
+            getDefaultFormat()
+        )
         return millis2FitTimeSpan(delta, precision)
     }
     private fun millis2FitTimeSpan(millis: Long, precision: Int): String? {
@@ -195,9 +239,18 @@ object TimeUtils{
      *  * 其余显示，2016-10-15
      *  * 时间不合法的情况全部日期和时间信息，如星期六 十月 27 14:21:20 CST 2007
      */
-    fun getSmartDate(time: String) = getFriendlyTimeSpanByNow(time, getDefaultFormat())
+    fun getSmartDate(time: String) = getFriendlyTimeSpanByNow(
+        time,
+        getDefaultFormat()
+    )
 
-    fun getFriendlyTimeSpanByNow(time: String, @NonNull format: DateFormat) = getFriendlyTimeSpanByNow(string2Long(time, format))
+    fun getFriendlyTimeSpanByNow(time: String, @NonNull format: DateFormat) =
+        getFriendlyTimeSpanByNow(
+            string2Long(
+                time,
+                format
+            )
+        )
 
     fun getFriendlyTimeSpanByNow(millis: Long): String {
         val now = System.currentTimeMillis()
@@ -236,8 +289,19 @@ object TimeUtils{
     /**
      * 判断是否是今天
      */
-    fun isToday(time: String) = isToday(string2Long(time, getDefaultFormat()))
-    fun isToday(time: String, @NonNull format: DateFormat) = isToday(string2Long(time, format))
+    fun isToday(time: String) = isToday(
+        string2Long(
+            time,
+            getDefaultFormat()
+        )
+    )
+    fun isToday(time: String, @NonNull format: DateFormat) =
+        isToday(
+            string2Long(
+                time,
+                format
+            )
+        )
     fun isToday(date: Date) = isToday(date.time)
     fun isToday(millis: Long): Boolean {
         val wee = getWeeOfToday()
@@ -328,10 +392,18 @@ object TimeUtils{
             birthday.year = birthday.year - SYSTEM_START_DATE[0]
         }
 
-        return getAge(intArrayOf(birthday.year, birthday.month, birthday.day))
+        return getAge(
+            intArrayOf(
+                birthday.year,
+                birthday.month,
+                birthday.day
+            )
+        )
     }
 
-    fun getAge(birthday: Long) =getAge(getDateDetail(birthday))
+    fun getAge(birthday: Long) = getAge(
+        getDateDetail(birthday)
+    )
 
     fun getAge(birthdayDetail: IntArray?): Int {
         if (birthdayDetail == null || birthdayDetail.size < 3) {
@@ -397,7 +469,10 @@ object TimeUtils{
      * 获取生日
      */
     fun getBirthday(date: Date?, needYear: Boolean): String {
-        return if (date == null) "" else getBirthday(date.time, needYear)
+        return if (date == null) "" else getBirthday(
+            date.time,
+            needYear
+        )
     }
 
     /**
@@ -430,7 +505,13 @@ object TimeUtils{
         if (birthdayDetails[0] > SYSTEM_START_DATE[0]) {
             birthdayDetails[0] = birthdayDetails[0] - SYSTEM_START_DATE[0]
         }
-        return getSmartBirthday(Date(birthdayDetails[0], birthdayDetails[1], birthdayDetails[2]))
+        return getSmartBirthday(
+            Date(
+                birthdayDetails[0],
+                birthdayDetails[1],
+                birthdayDetails[2]
+            )
+        )
     }
     fun getSmartBirthday(birthday: Date?): String {
         if (birthday == null) {
@@ -440,7 +521,10 @@ object TimeUtils{
             birthday.year = birthday.year - SYSTEM_START_DATE[0]
         }
 
-        return getSmartBirthday(birthday.time, false) + " " + (getDateDetail(System.currentTimeMillis())[0] - birthday.year) + "岁"
+        return getSmartBirthday(
+            birthday.time,
+            false
+        ) + " " + (getDateDetail(System.currentTimeMillis())[0] - birthday.year) + "岁"
     }
     fun getSmartBirthday(birthday: Long, needYear: Boolean): String {
         val birthdayDetails = getDateDetail(birthday)
@@ -512,7 +596,11 @@ object TimeUtils{
      * 判断现在是否属于一段时间,不包含端点
      */
     fun isNowInTimeArea(start: IntArray, end: IntArray): Boolean {
-        return isInTimeArea(getTimeDetail(System.currentTimeMillis()), start, end)
+        return isInTimeArea(
+            getTimeDetail(
+                System.currentTimeMillis()
+            ), start, end
+        )
     }
 
     /**
@@ -534,13 +622,27 @@ object TimeUtils{
      */
     fun isInTimeArea(time: IntArray, start: IntArray, end: IntArray): Boolean {
         if (fomerIsBigger(end, start)) {
-            return fomerIsBigger(time, start) && fomerIsBigger(end, time)
+            return fomerIsBigger(
+                time,
+                start
+            ) && fomerIsBigger(end, time)
         }
 
-        if (fomerIsBigger(time, start) && fomerIsBigger(maxTimeDetails, time)) {
+        if (fomerIsBigger(
+                time,
+                start
+            ) && fomerIsBigger(
+                maxTimeDetails,
+                time
+            )
+        ) {
             return true
         }
-        return if (fomerIsBigger(time, minTimeDetails) && fomerIsBigger(end, time)) {
+        return if (fomerIsBigger(
+                time,
+                minTimeDetails
+            ) && fomerIsBigger(end, time)
+        ) {
             true
         } else false
 
@@ -616,7 +718,13 @@ object TimeConstants {
     const val HOUR = 3600000
     const val DAY = 86400000
 
-    @IntDef(MSEC, SEC, MIN, HOUR, DAY)
+    @IntDef(
+        MSEC,
+        SEC,
+        MIN,
+        HOUR,
+        DAY
+    )
     @Retention(RetentionPolicy.SOURCE)
     annotation class Unit
 }

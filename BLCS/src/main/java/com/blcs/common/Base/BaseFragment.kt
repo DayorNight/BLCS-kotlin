@@ -6,17 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.blcs.common.XStatusBar
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 
 /**
  * A simple [Fragment] subclass.
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding?> : Fragment() {
+    var mBindLayout: T? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(setLayout(), container, false)
+        mBindLayout = DataBindingUtil.inflate<T>(inflater, setLayout(), container, false)
+        return  mBindLayout?.getRoot()
     }
     abstract fun setLayout():Int
     abstract fun initUI()

@@ -14,7 +14,9 @@ ext {
             navigation      : '2.1.0',
             rxjava3         : '3.0.0-RC9',
             lifecycle       : '2.2.0',
-            paging       : '2.1.1',
+            paging          : '2.1.1',
+            leakcanary      : "2.0-beta-3",
+            magicIndicator  : "1.5.0",
     ]
 
     Dp = [
@@ -30,5 +32,9 @@ ext {
             rxjava3         : "io.reactivex.rxjava3:rxjava:$Vs.rxjava3",
             lifecycle       : "androidx.lifecycle:lifecycle-extensions:$Vs.lifecycle",
             paging          : "androidx.paging:paging-runtime-ktx:$Vs.paging",
+            // LeakCanary：https://github.com/square/leakcanary 检测内存泄露工具
+            leakcanary      : "com.squareup.leakcanary:leakcanary-android:$Vs.leakcanary",
+            //viewpager 指示器： https://github.com/hackware1993/MagicIndicator
+            magicIndicator  : "com.github.hackware1993:MagicIndicator:$Vs.magicIndicator",
     ]
 }

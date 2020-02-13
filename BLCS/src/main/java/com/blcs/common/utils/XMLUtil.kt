@@ -1,4 +1,4 @@
-package com.blcs.common
+package com.blcs.common.utils
 
 import android.text.TextUtils
 import android.util.Xml
@@ -8,8 +8,6 @@ import org.xmlpull.v1.XmlPullParserException
 
 import java.io.ByteArrayInputStream
 import java.io.IOException
-import java.io.InputStream
-import java.lang.reflect.Field
 import java.util.ArrayList
 
 /**
@@ -60,7 +58,12 @@ object XMLUtil {
                             val textValue = xmlPullParser.nextText()
                             val fieldName = xmlPullParser.name
                             for (field in fields) {
-                                ReflectUtil.setFieldValue<T>(t!!, field, fieldName, textValue)
+                                ReflectUtil.setFieldValue<T>(
+                                    t!!,
+                                    field,
+                                    fieldName,
+                                    textValue
+                                )
                             }
                         }
                     }

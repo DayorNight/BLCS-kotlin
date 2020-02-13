@@ -1,10 +1,9 @@
-package com.blcs.common
+package com.blcs.common.utils
 
 import android.util.Log
 import android.widget.TextView
 
 import java.io.File
-import java.math.BigDecimal
 import java.text.DecimalFormat
 import java.util.regex.Matcher
 import java.util.regex.Pattern
@@ -116,7 +115,11 @@ object StringUtils {
      * @return
      */
     fun getTrimedString(tv: TextView): String {
-        return getTrimedString(getString(tv))
+        return getTrimedString(
+            getString(
+                tv
+            )
+        )
     }
 
     /**获取去掉前后空格后的string,为null则返回""
@@ -124,7 +127,11 @@ object StringUtils {
      * @return
      */
     fun getTrimedString(`object`: Any): String {
-        return getTrimedString(getString(`object`))
+        return getTrimedString(
+            getString(
+                `object`
+            )
+        )
     }
 
     /**获取去掉前后空格后的string,为null则返回""
@@ -132,7 +139,11 @@ object StringUtils {
      * 0	0 * @return
      */
     fun getTrimedString(cs: CharSequence): String {
-        return getTrimedString(getString(cs))
+        return getTrimedString(
+            getString(
+                cs
+            )
+        )
     }
 
     /**获取去掉前后空格后的string,为null则返回""
@@ -153,7 +164,11 @@ object StringUtils {
      * @return
      */
     fun getNoBlankString(tv: TextView): String {
-        return getNoBlankString(getString(tv))
+        return getNoBlankString(
+            getString(
+                tv
+            )
+        )
     }
 
     /**获取去掉所有空格后的string,为null则返回""
@@ -161,7 +176,11 @@ object StringUtils {
      * @return
      */
     fun getNoBlankString(`object`: Any): String {
-        return getNoBlankString(getString(`object`))
+        return getNoBlankString(
+            getString(
+                `object`
+            )
+        )
     }
 
     /**获取去掉所有空格后的string,为null则返回""
@@ -169,7 +188,11 @@ object StringUtils {
      * @return
      */
     fun getNoBlankString(cs: CharSequence): String {
-        return getNoBlankString(getString(cs))
+        return getNoBlankString(
+            getString(
+                cs
+            )
+        )
     }
 
     /**获取去掉所有空格后的string,为null则返回""
@@ -191,7 +214,11 @@ object StringUtils {
      * @return
      */
     fun getLength(tv: TextView, trim: Boolean): Int {
-        return getLength(getString(tv), trim)
+        return getLength(
+            getString(
+                tv
+            ), trim
+        )
     }
 
     /**获取string的长度,为null则返回0
@@ -200,7 +227,11 @@ object StringUtils {
      * @return
      */
     fun getLength(`object`: Any, trim: Boolean): Int {
-        return getLength(getString(`object`), trim)
+        return getLength(
+            getString(
+                `object`
+            ), trim
+        )
     }
 
     /**获取string的长度,为null则返回0
@@ -209,7 +240,11 @@ object StringUtils {
      * @return
      */
     fun getLength(cs: CharSequence, trim: Boolean): Int {
-        return getLength(getString(cs), trim)
+        return getLength(
+            getString(
+                cs
+            ), trim
+        )
     }
 
     /**获取string的长度,为null则返回0
@@ -219,7 +254,9 @@ object StringUtils {
      */
     fun getLength(s: String, trim: Boolean): Int {
 
-        return if (trim) getNoBlankString(s).length else getString(s).length
+        return if (trim) getNoBlankString(s).length else getString(
+            s
+        ).length
 
     }
 
@@ -324,7 +361,7 @@ object StringUtils {
      * @return
      */
     fun isFilePathExist(path: String): Boolean {
-        return StringUtils.isFilePath(path) && File(path).exists()
+        return isFilePath(path) && File(path).exists()
     }
 
     /**判断字符类型是否是路径
@@ -351,7 +388,11 @@ object StringUtils {
      * @return
      */
     fun getNumber(tv: TextView): String {
-        return getNumber(getString(tv))
+        return getNumber(
+            getString(
+                tv
+            )
+        )
     }
 
     /**去掉string内所有非数字类型字符
@@ -359,7 +400,11 @@ object StringUtils {
      * @return
      */
     fun getNumber(`object`: Any): String {
-        return getNumber(getString(`object`))
+        return getNumber(
+            getString(
+                `object`
+            )
+        )
     }
 
     /**去掉string内所有非数字类型字符
@@ -367,7 +412,11 @@ object StringUtils {
      * @return
      */
     fun getNumber(cs: CharSequence): String {
-        return getNumber(getString(cs))
+        return getNumber(
+            getString(
+                cs
+            )
+        )
     }
 
     /**去掉string内所有非数字类型字符
@@ -396,7 +445,11 @@ object StringUtils {
      * @return
      */
     fun getCorrectUrl(tv: TextView): String {
-        return getCorrectUrl(getString(tv))
+        return getCorrectUrl(
+            getString(
+                tv
+            )
+        )
     }
 
     /**获取网址，自动补全
@@ -421,7 +474,11 @@ object StringUtils {
      * @return
      */
     fun getCorrectPhone(tv: TextView): String {
-        return getCorrectPhone(getString(tv))
+        return getCorrectPhone(
+            getString(
+                tv
+            )
+        )
     }
 
     /**获取去掉所有 空格 、"-" 、"+86" 后的phone
@@ -445,7 +502,11 @@ object StringUtils {
      * @return
      */
     fun getCorrectEmail(tv: TextView): String {
-        return getCorrectEmail(getString(tv))
+        return getCorrectEmail(
+            getString(
+                tv
+            )
+        )
     }
 
     /**获取邮箱，自动补全

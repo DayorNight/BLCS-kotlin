@@ -1,11 +1,9 @@
-package com.blcs.common
+package com.blcs.common.utils
 
 import android.text.TextUtils
 
 import java.lang.reflect.Field
-import java.lang.reflect.Method
 import java.lang.reflect.Modifier
-import java.lang.reflect.Type
 
 /**
  * Created by lwb on 2017/12/26.
@@ -45,7 +43,9 @@ object ReflectUtil {
                     field.set(t, value)
                 } else {
                     val method =
-                        t.javaClass.getMethod("set" + getMethodName(fieldName), String::class.java)
+                        t.javaClass.getMethod("set" + getMethodName(
+                            fieldName
+                        ), String::class.java)
                     method.invoke(t, value)
                 }
                 "double" -> if (Modifier.isPublic(typeCode)) {

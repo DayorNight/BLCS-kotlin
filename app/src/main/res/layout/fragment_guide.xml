@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
     android:id="@+id/ll_bg"
     style="@style/lin_ver"
+    android:gravity="center"
     >
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_guide"
+        style="@style/tv_stander"
+        android:padding="@dimen/space_line2"
+        />
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/wrap_wrap"
+        android:layout_marginTop="@dimen/space_line3"
+        android:text="欢迎进入"
+        android:visibility="gone"
+        android:textColor="@android:color/white"/>
+</LinearLayout></layout>

@@ -13,10 +13,10 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:enterAnim="@anim/right_push_in"
+            app:exitAnim="@anim/left_push_out"
+            app:popEnterAnim="@anim/right_push_in"
+            app:popExitAnim="@anim/left_push_out"
             />
     </fragment>
     <fragment
@@ -27,10 +27,10 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:enterAnim="@anim/right_push_in"
+            app:exitAnim="@anim/left_push_out"
+            app:popEnterAnim="@anim/right_push_in"
+            app:popExitAnim="@anim/left_push_out"/>
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

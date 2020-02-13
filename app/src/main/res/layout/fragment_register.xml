@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
     style="@style/match_match"
     android:background="@android:color/white"
     android:orientation="vertical"
@@ -14,4 +15,4 @@
         android:id="@+id/btn_register"
         style="@style/tv_stander"
         android:text="注册成功"/>
-</LinearLayout>
+</LinearLayout></layout>
