@@ -24,6 +24,9 @@
     <style name="lin_hor" parent="match_wrap">
         <item name="android:orientation">horizontal</item>
     </style>
+    <style name="lin_hor2" parent="wrap_wrap">
+        <item name="android:orientation">horizontal</item>
+    </style>
 <!--  TextView  -->
     <style name="tv_stander" parent="wrap_wrap">
         <item name="android:textColor">@android:color/black</item>

@@ -2,10 +2,24 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="click"
-            type="android.view.View.OnClickListener"/>
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="isFocuse"
+            type="boolean" />
+
+        <variable
+            name="passWord"
+            type="String" />
+
+        <variable
+            name="phone"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,57 +28,98 @@
         android:gravity="center"
         tools:context=".fragment.LoginFragment">
 
-        <LinearLayout
-            android:id="@+id/ll_login"
+
+        <EditText
+            android:id="@+id/et_phone"
             style="@style/wrap_wrap"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <EditText
-                style="@style/wrap_wrap"
-                android:background="@drawable/bg_gray_radius"
-                android:ems="9"
-                android:hint="请输入手机号"
-                android:maxLength="11"
-                android:padding="@dimen/space_line2"
-                android:textSize="@dimen/standard_title" />
-
-            <EditText
-                style="@style/wrap_wrap"
-                android:layout_marginTop="@dimen/space_line2"
-                android:background="@drawable/bg_gray_radius"
-                android:ems="9"
-                android:hint="请输入密码"
-                android:inputType="textPassword"
-                android:maxLength="12"
-                android:padding="@dimen/space_line2"
-                android:textSize="@dimen/standard_title" />
-
-            <Button
-                android:id="@+id/btn_login"
-                style="@style/wrap_wrap"
-                android:layout_marginTop="@dimen/space_line3"
-                android:background="@drawable/bg_gray_radius"
-                android:ems="5"
-                android:text="登录"
-                android:onClick="@{click}"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/standard_title" />
-        </LinearLayout>
+            android:layout_marginBottom="@dimen/space_line2"
+            android:background="@drawable/bg_gray_radius"
+            android:ems="7"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:padding="@dimen/space_line2"
+            android:text="@={phone}"
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="@dimen/standard_title"
+            app:layout_constraintBottom_toTopOf="@+id/et_psw"
+            app:layout_constraintLeft_toLeftOf="@+id/et_psw"
+            app:layout_constraintRight_toRightOf="@+id/et_psw"
+            app:verifyPhone="@{true}" />
 
         <ImageView
+            android:id="@+id/iv_clean"
             style="@style/wrap_wrap"
-            android:layout_marginTop="@dimen/space_line2"
-            android:src="@mipmap/ic_wx"
             android:onClick="@{click}"
+            android:padding="@dimen/space_line"
+            android:src="@mipmap/ic_clean"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/et_phone"
+            app:layout_constraintLeft_toRightOf="@+id/et_phone"
+            app:layout_constraintTop_toTopOf="@+id/et_phone" />
+
+
+        <EditText
+            android:id="@+id/et_psw"
+            style="@style/wrap_wrap"
+            android:background="@drawable/bg_gray_radius"
+            android:ems="7"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:padding="@dimen/space_line2"
+            android:text="@={passWord}"
+            android:textSize="@dimen/standard_title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_login" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_show_psw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{click}"
+            android:padding="@dimen/space_line"
+            android:src="@drawable/selector_psw"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/et_psw"
+            app:layout_constraintLeft_toRightOf="@+id/et_psw"
+            app:layout_constraintTop_toTopOf="@+id/et_psw" />
+
+        <RadioButton
+            android:id="@+id/rb_remember_psw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@+id/et_psw"
+            app:layout_constraintTop_toBottomOf="@+id/et_psw"
+            android:layout_marginLeft="@dimen/space_line"
+            android:textSize="@dimen/sp_small"
+            android:textColor="@android:color/holo_green_dark"
+            android:text="记住密码"/>
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/wrap_wrap"
+            android:background="@drawable/bg_gray_radius_login"
+            android:ems="5"
+            android:onClick="@{click}"
+            android:text="登录"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/standard_title"
+            android:focusable="false"
+            app:layout_constraintLeft_toLeftOf="@+id/et_psw"
+            app:layout_constraintRight_toRightOf="@+id/et_psw"
+            app:layout_constraintTop_toBottomOf="@+id/rb_remember_psw" />
+
+        <ImageView
+            android:id="@+id/iv_wx"
+            style="@style/wrap_wrap"
+            android:layout_marginTop="@dimen/title_height"
+            android:onClick="@{click}"
+            android:src="@mipmap/ic_wx"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
         <TextView
             android:id="@+id/btn_to_register"
@@ -73,9 +128,9 @@
             android:background="@drawable/bg_gray_radius_soild"
             android:ems="5"
             android:gravity="center"
+            android:onClick="@{click}"
             android:padding="7dp"
             android:text="注册账号"
-            android:onClick="@{click}"
             android:textColor="@color/blue_a5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
@@ -87,9 +142,9 @@
             android:background="@drawable/bg_gray_radius_soild"
             android:ems="5"
             android:gravity="center"
+            android:onClick="@{click}"
             android:padding="7dp"
             android:text="找回密码"
-            android:onClick="@{click}"
             android:textColor="@color/blue_a5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />

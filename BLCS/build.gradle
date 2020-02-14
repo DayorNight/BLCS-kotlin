@@ -49,4 +49,5 @@ dependencies {
     api Dp.paging
     api Dp.leakcanary
     api Dp.magicIndicator
+    api Dp.anko
 }

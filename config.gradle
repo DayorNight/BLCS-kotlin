@@ -17,6 +17,7 @@ ext {
             paging          : '2.1.1',
             leakcanary      : "2.0-beta-3",
             magicIndicator  : "1.5.0",
+            anko  : "0.10.8",
     ]
 
     Dp = [
@@ -36,5 +37,6 @@ ext {
             leakcanary      : "com.squareup.leakcanary:leakcanary-android:$Vs.leakcanary",
             //viewpager 指示器： https://github.com/hackware1993/MagicIndicator
             magicIndicator  : "com.github.hackware1993:MagicIndicator:$Vs.magicIndicator",
+            anko            : "org.jetbrains.anko:anko:$Vs.anko"
     ]
 }

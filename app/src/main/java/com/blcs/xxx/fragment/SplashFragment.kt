@@ -8,8 +8,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.navigation.fragment.findNavController
 import com.blcs.common.Base.BaseFragment
+import com.blcs.common.utils.SPUtils
 import com.blcs.common.utils.ScaleCircleNavigator
 import com.blcs.xxx.R
+import com.blcs.xxx.comment.Constant
 import com.blcs.xxx.databinding.FragmentSplashBinding
 import kotlinx.android.synthetic.main.fragment_splash.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
@@ -22,8 +24,14 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
     override fun initUI() {
         view?.postDelayed({
-            mBindLayout?.isShow = true
-        },3000)
+            val isFrist = SPUtils.getValue(Constant.SP_FIRST, false) as Boolean
+            mBindLayout?.isShow = !isFrist
+            if (!isFrist) {
+                SPUtils.saveValue(Constant.SP_FIRST, !isFrist)
+            }else{
+                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            }
+        }, 3000)
         mBindLayout?.adapter = MyAdapter(activity!!.supportFragmentManager)
         initMagicIndicator()
     }
@@ -40,8 +48,9 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
     override fun setLayout() = R.layout.fragment_splash
 
-    class MyAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-        override fun getItem(position: Int) =  GuideFragment.init(position)
+    class MyAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+        override fun getItem(position: Int) = GuideFragment.init(position)
         override fun getCount() = 4
     }
 }

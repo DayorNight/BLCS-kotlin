@@ -2,6 +2,7 @@ package com.blcs.common.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.blcs.common.Base.BaseApplication
 
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
@@ -10,154 +11,58 @@ import java.lang.reflect.Method
  * SharedPreferences的封装
  */
 object SPUtils {
+    private val name = "APP_Config"
+    private val prefs: SharedPreferences by lazy {
+        BaseApplication.instance!!.applicationContext.getSharedPreferences(
+            name,
+            Context.MODE_PRIVATE
+        )
+    }
+
     /**
-     * 创建一个解决SharedPreferencesCompat.apply方法的一个兼容类
-     * @author zhy
+     * 获取存放数据
+     * @return 值
      */
-    private object SharedPreferencesCompat {
-        private val sApplyMethod = findApplyMethod()
-
-        /**
-         * 反射查找apply的方法
-         * @return
-         */
-        private fun findApplyMethod(): Method? {
-            try {
-                val clz = SharedPreferences.Editor::class.java
-                return clz.getMethod("apply")
-            } catch (e: NoSuchMethodException) {
-            }
-
-            return null
-        }
-
-        /**
-         * 如果找到则使用apply执行，否则使用commit
-         *
-         * @param editor
-         */
-        fun apply(editor: SharedPreferences.Editor) {
-            try {
-                if (sApplyMethod != null) {
-                    sApplyMethod.invoke(editor)
-                    return
-                }
-            } catch (e: IllegalArgumentException) {
-            } catch (e: IllegalAccessException) {
-            } catch (e: InvocationTargetException) {
-            }
-
-            editor.commit()
+    @Suppress("UNCHECKED_CAST")
+    fun getValue(key: String, default: Any): Any = with(prefs) {
+        return when (default) {
+            is Int -> getInt(key, default)
+            is String -> getString(key, default)!!
+            is Long -> getLong(key, default)
+            is Float -> getFloat(key, default)
+            is Boolean -> getBoolean(key, default)
+            else -> throw IllegalArgumentException("SharedPreferences 类型错误")
         }
     }
 
-
     /**
-     * 保存在手机里面的文件名
+     * 存放SharedPreferences
+     * @param key 键
+     * @param value 值
      */
-    val FILE_NAME = "share_data"
-
-    /**
-     * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
-     *
-     * @param context
-     * @param key
-     * @param object
-     */
-    fun put(context: Context, key: String, `object`: Any) {
-
-        val sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
-        val editor = sp.edit()
-
-        if (`object` is String) {
-            editor.putString(key, `object`)
-        } else if (`object` is Int) {
-            editor.putInt(key, `object`)
-        } else if (`object` is Boolean) {
-            editor.putBoolean(key, `object`)
-        } else if (`object` is Float) {
-            editor.putFloat(key, `object`)
-        } else if (`object` is Long) {
-            editor.putLong(key, `object`)
-        } else {
-            editor.putString(key, `object`.toString())
-        }
-
-        SharedPreferencesCompat.apply(editor)
+    fun saveValue(key: String, value: Any) = with(prefs.edit()) {
+        when (value) {
+            is Long -> putLong(key, value)
+            is Int -> putInt(key, value)
+            is String -> putString(key, value)
+            is Float -> putFloat(key, value)
+            is Boolean -> putBoolean(key, value)
+            else -> throw IllegalArgumentException("SharedPreferences 类型错误")
+        }.apply()
     }
 
     /**
-     * 得到保存数据的方法，我们根据默认值得到保存的数据的具体类型，然后调用相对于的方法获取值
-     *
-     * @param context
-     * @param key
-     * @param defaultObject
-     * @return
+     * 清除
      */
-     fun get(context: Context, key: String, defaultObject: Any): Any? {
-        val sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
-
-        if (defaultObject is String) {
-            return sp.getString(key, defaultObject)
-        } else if (defaultObject is Int) {
-            return sp.getInt(key, defaultObject)
-        } else if (defaultObject is Boolean) {
-            return sp.getBoolean(key, defaultObject)
-        } else if (defaultObject is Float) {
-            return sp.getFloat(key, defaultObject)
-        } else if (defaultObject is Long) {
-            return sp.getLong(key, defaultObject)
-        }
-
-        return null
+    fun clear() {
+        prefs.edit().clear().apply()
     }
 
     /**
-     * 移除某个key值已经对应的值
-     *
-     * @param context
-     * @param key
+     * 删除某Key的值
      */
-    fun remove(context: Context, key: String) {
-        val sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
-        val editor = sp.edit()
-        editor.remove(key)
-        SharedPreferencesCompat.apply(editor)
-    }
-
-    /**
-     * 清除所有数据
-     *
-     * @param context
-     */
-    fun clear(context: Context) {
-        val sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
-        val editor = sp.edit()
-        editor.clear()
-        SharedPreferencesCompat.apply(editor)
-    }
-
-    /**
-     * 查询某个key是否已经存在
-     *
-     * @param context
-     * @param key
-     * @return
-     */
-    fun contains(context: Context, key: String): Boolean {
-        val sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
-        return sp.contains(key)
-    }
-
-    /**
-     * 返回所有的键值对
-     *
-     * @param context
-     * @return
-     */
-    fun getAll(context: Context): Map<String, *> {
-        val sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
-        return sp.all
+    fun remove(key: String) {
+        prefs.edit().remove(key).apply()
     }
 
 }

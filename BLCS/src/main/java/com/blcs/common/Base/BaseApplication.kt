@@ -11,11 +11,15 @@ import me.jessyan.autosize.AutoSizeConfig
  * A simple [Fragment] subclass.
  */
 abstract class BaseApplication : Application() {
+    companion object{
+        var instance :BaseApplication? = null
+    }
     override fun onCreate() {
         super.onCreate()
         screenAdapter()
         //全局异常处理
         CrashHandler.getInstance(applicationContext)
+        instance = this
     }
 
     /**

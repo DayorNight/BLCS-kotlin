@@ -18,5 +18,3 @@ fun Activity.toHome() {
     }
 }
 
-fun Activity.toast(content: String) = Toast.makeText(this, content, Toast.LENGTH_SHORT).show()
-fun Fragment.toast(content: String) = Toast.makeText(activity, content, Toast.LENGTH_SHORT).show()
