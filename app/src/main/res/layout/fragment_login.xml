@@ -40,7 +40,7 @@
             android:maxLength="11"
             android:padding="@dimen/space_line2"
             android:text="@={phone}"
-            android:textColor="@android:color/holo_green_light"
+            android:textColor="@android:color/holo_green_dark"
             android:textSize="@dimen/standard_title"
             app:layout_constraintBottom_toTopOf="@+id/et_psw"
             app:layout_constraintLeft_toLeftOf="@+id/et_psw"
@@ -87,7 +87,7 @@
             app:layout_constraintLeft_toRightOf="@+id/et_psw"
             app:layout_constraintTop_toTopOf="@+id/et_psw" />
 
-        <RadioButton
+        <CheckBox
             android:id="@+id/rb_remember_psw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
