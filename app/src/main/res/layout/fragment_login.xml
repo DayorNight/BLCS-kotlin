@@ -40,7 +40,7 @@
             android:maxLength="11"
             android:padding="@dimen/space_line2"
             android:text="@={phone}"
-            android:textColor="@android:color/holo_green_dark"
+            android:textColor="@color/green"
             android:textSize="@dimen/standard_title"
             app:layout_constraintBottom_toTopOf="@+id/et_psw"
             app:layout_constraintLeft_toLeftOf="@+id/et_psw"
@@ -70,6 +70,7 @@
             android:padding="@dimen/space_line2"
             android:text="@={passWord}"
             android:textSize="@dimen/standard_title"
+            android:textColor="@color/green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -95,7 +96,7 @@
             app:layout_constraintTop_toBottomOf="@+id/et_psw"
             android:layout_marginLeft="@dimen/space_line"
             android:textSize="@dimen/sp_small"
-            android:textColor="@android:color/holo_green_dark"
+            android:textColor="@color/green"
             android:text="记住密码"/>
         <Button
             android:id="@+id/btn_login"
