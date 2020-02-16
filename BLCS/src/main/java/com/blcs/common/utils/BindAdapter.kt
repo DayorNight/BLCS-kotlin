@@ -26,3 +26,8 @@ fun verifyPhone(view: EditText,isVerify: Boolean) {
             if (!it.toString().isPhone() && it?.length == 11) android.R.color.holo_red_dark else android.R.color.holo_green_dark
     }
 }
+
+@BindingAdapter("select")
+fun select(view: View,select: Boolean) {
+    view.isSelected = select
+}

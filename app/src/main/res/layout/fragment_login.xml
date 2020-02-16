@@ -14,6 +14,10 @@
             type="boolean" />
 
         <variable
+            name="select"
+            type="boolean" />
+
+        <variable
             name="passWord"
             type="String" />
 
@@ -107,7 +111,8 @@
             android:text="登录"
             android:textColor="@android:color/white"
             android:textSize="@dimen/standard_title"
-            android:focusable="false"
+            android:clickable="@{select}"
+            app:select="@{select}"
             app:layout_constraintLeft_toLeftOf="@+id/et_psw"
             app:layout_constraintRight_toRightOf="@+id/et_psw"
             app:layout_constraintTop_toBottomOf="@+id/rb_remember_psw" />

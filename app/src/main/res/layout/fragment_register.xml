@@ -1,18 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<LinearLayout
-    style="@style/match_match"
-    android:background="@android:color/white"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".fragment.RegisterFragment">
+    <data >
+        <import type="android.view.View"/>
+        <variable
+            name="phone"
+            type="String" />
+        <variable
+            name="click"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="passWord"
+            type="String" />
+        <variable
+            name="resPassWord"
+            type="String" />
+        <variable
+            name="isClick"
+            type="Boolean" />
+        <variable
+            name="select"
+            type="Boolean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/match_match"
+        android:background="@android:color/white"
+        tools:context=".fragment.RegisterFragment">
+        <include layout="@layout/layout_toolbar"/>
+        <EditText
+            android:id="@+id/et_phone"
+            style="@style/wrap_wrap"
+            android:layout_marginBottom="@dimen/space_line2"
+            android:background="@drawable/bg_gray_radius"
+            android:ems="9"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:padding="@dimen/space_line2"
+            android:text="@={phone}"
+            android:textColor="@color/green"
+            android:textSize="@dimen/standard_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/ll_vertify"
+            app:layout_goneMarginBottom="@dimen/space_line2"
+            app:verifyPhone="@{true}" />
+        <ImageView
+            android:id="@+id/iv_close"
+            style="@style/wrap_wrap"
+            android:src="@mipmap/ic_clean"
+            app:layout_constraintTop_toTopOf="@+id/et_phone"
+            app:layout_constraintBottom_toBottomOf="@+id/et_phone"
+            app:layout_constraintLeft_toRightOf="@+id/et_phone"
+            android:padding="@dimen/space_line2"
+            android:onClick="@{click}"
+            android:visibility="gone"
+            />
+        <LinearLayout
+            android:id="@+id/ll_vertify"
+            style="@style/lin_hor2"
+            app:layout_constraintLeft_toLeftOf="@+id/et_password"
+            app:layout_constraintBottom_toTopOf="@+id/et_password"
+            android:layout_marginBottom="@dimen/space_line2"
+            app:select="@{select}"
+            android:background="@drawable/bg_green_vertify">
+            <Button
+                android:id="@+id/btn_vertify_code"
+                style="@style/wrap_wrap"
+                android:background="@drawable/bg_green_vertify"
+                android:ems="6"
+                android:onClick="@{click}"
+                android:text="获取验证码"
+                app:select="@{select}"
+                android:textColor="@android:color/white" />
 
-    <TextView
-        style="@style/tv_stander"
-        android:text="注册界面" />
-    <Button
-        android:id="@+id/btn_register"
-        style="@style/tv_stander"
-        android:text="注册成功"/>
-</LinearLayout></layout>
+            <EditText
+                android:id="@+id/et_code"
+                style="@style/wrap_wrap"
+                android:background="@null"
+                android:ems="5"
+                android:padding="@dimen/space_line"
+                android:gravity="center"
+                android:hint="输入验证码"
+                android:focusable="@{select}"
+                android:focusableInTouchMode="@{select}"
+                android:inputType="number"
+                android:visibility="@{isClick ? View.VISIBLE:View.GONE}"
+                android:maxLength="6" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/wrap_wrap"
+            android:layout_marginTop="@dimen/space_line2"
+            android:background="@drawable/bg_gray_radius"
+            android:ems="9"
+            android:visibility="@{isClick ? View.VISIBLE:View.INVISIBLE}"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:padding="@dimen/space_line2"
+            android:text="@={passWord}"
+            android:textColor="@color/green"
+            android:textSize="@dimen/standard_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <EditText
+            android:id="@+id/et_reset_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_line2"
+            android:background="@drawable/bg_gray_radius"
+            android:ems="7"
+            android:visibility="@{isClick ? View.VISIBLE:View.INVISIBLE}"
+            android:hint="请重新输入密码"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:padding="@dimen/space_line2"
+            android:text="@={resPassWord}"
+            android:textColor="@color/green"
+            app:layout_constraintLeft_toLeftOf="@+id/et_password"
+            app:layout_constraintRight_toRightOf="@+id/et_password"
+            app:layout_constraintTop_toBottomOf="@+id/et_password"
+            android:textSize="@dimen/standard_title" />
+        <Button
+            android:id="@+id/btn_register"
+            style="@style/wrap_wrap"
+            android:background="@drawable/bg_gray_radius_login"
+            android:ems="5"
+            android:visibility="@{isClick ? View.VISIBLE:View.INVISIBLE}"
+            android:focusable="false"
+            android:onClick="@{click}"
+            android:text="注册"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/standard_title"
+            app:layout_constraintLeft_toLeftOf="@+id/et_reset_password"
+            app:layout_constraintRight_toRightOf="@+id/et_reset_password"
+            app:layout_constraintTop_toBottomOf="@+id/et_reset_password"
+            android:layout_marginTop="@dimen/space_line3"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

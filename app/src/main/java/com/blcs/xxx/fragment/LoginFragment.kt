@@ -66,6 +66,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
                 iv_show_psw.isSelected = !iv_show_psw.isSelected
                 et_psw.setSelection(et_psw.text.length)
             }
+
         }
     }
 
@@ -81,23 +82,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
         }
         et_phone.addTextChangedListener {
             iv_clean.visibility = if (it?.length!! > 0) View.VISIBLE else View.GONE
-            if (!TextUtils.isEmpty(mBindLayout?.passWord) && mBindLayout?.passWord!!.length > 0 && it?.length > 0) {
-                btn_login.isSelected = true
-                btn_login.isFocusable = true
-            } else {
-                btn_login.isSelected = false
-                btn_login.isFocusable = false
-            }
+            mBindLayout?.select = !TextUtils.isEmpty(mBindLayout?.passWord) && mBindLayout?.passWord!!.length > 0 && it?.length > 0
+
         }
         et_psw.addTextChangedListener {
             iv_show_psw.visibility = if (it?.length!! > 0) View.VISIBLE else View.GONE
-            if (!TextUtils.isEmpty(mBindLayout?.phone) && mBindLayout?.phone!!.length > 0 && it?.length > 0) {
-                btn_login.isSelected = true
-                btn_login.isFocusable = true
-            } else {
-                btn_login.isSelected = false
-                btn_login.isFocusable = false
-            }
+            mBindLayout?.select = !TextUtils.isEmpty(mBindLayout?.phone) && mBindLayout?.phone!!.length > 0 && it?.length > 0
         }
     }
 
