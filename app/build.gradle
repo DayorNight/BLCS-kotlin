@@ -4,7 +4,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
 android {
     compileSdkVersion As.compileSdkVersion
     defaultConfig {
@@ -15,12 +14,28 @@ android {
         versionName As.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            storeFile rootProject.file("keyStore/blcs.jks")
+            storePassword '123321'
+            keyAlias 'BLCS'
+            keyPassword '123321'
         }
     }
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -34,5 +49,4 @@ android {
 dependencies {
     implementation project(path: ':BLCS')
     kapt Dp.roomCompiler
-
 }

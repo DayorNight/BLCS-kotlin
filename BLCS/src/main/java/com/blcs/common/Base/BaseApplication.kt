@@ -1,6 +1,4 @@
 package com.blcs.common.Base
-
-
 import android.app.Application
 import androidx.fragment.app.Fragment
 import com.blcs.common.utils.crash.CrashHandler
@@ -20,6 +18,7 @@ abstract class BaseApplication : Application() {
         //全局异常处理
         CrashHandler.getInstance(applicationContext)
         instance = this
+
     }
 
     /**
@@ -36,4 +35,7 @@ abstract class BaseApplication : Application() {
         //如果您的 Fragment 不允许屏幕旋转, 则可以将下面调用 AutoSize.autoConvertDensity() 的代码删除掉
         //AutoSize.autoConvertDensity(getActivity()!!, 1080f, true)
     }
+
+
 }
+

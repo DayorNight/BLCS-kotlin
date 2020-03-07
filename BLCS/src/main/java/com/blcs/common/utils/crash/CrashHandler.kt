@@ -58,7 +58,7 @@ class CrashHandler private constructor(context: Context) : Thread.UncaughtExcept
     }
 
     /**
-     * uncaughtException 回调函数
+     *  uncaughtException 回调函数
      */
     override fun uncaughtException(thread: Thread, ex: Throwable) {
         //收集设备参数信息

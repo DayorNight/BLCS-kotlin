@@ -1,6 +1,7 @@
 package com.blcs.xxx.fragment
 
 
+import android.graphics.Color
 import android.text.TextUtils
 import android.view.View
 import androidx.core.widget.addTextChangedListener
@@ -46,7 +47,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
             R.id.iv_close -> mBindLayout?.phone = null
             R.id.btn_vertify_code -> {
                 mBindLayout?.isClick = true
-                mBindLayout?.select = true
                 btn_vertify_code.textColorResource = R.color.green
             }
         }
@@ -59,8 +59,15 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
         toolbar_titile.setNavigationOnClickListener{findNavController().popBackStack()}
         et_phone.addTextChangedListener {
             iv_close.visibility = if (it?.length!! > 0) View.VISIBLE else View.GONE
+            ll_vertify.visibility = if(it?.length == 11) View.VISIBLE else View.GONE
+
         }
 
+        et_password.addTextChangedListener {
+            mBindLayout?.isClick = !TextUtils.isEmpty(mBindLayout?.resPassWord) && mBindLayout?.resPassWord!!.length > 0 && it?.length!! > 0
+        }
+        et_reset_password.addTextChangedListener {
+            mBindLayout?.isClick = !TextUtils.isEmpty(mBindLayout?.passWord) && mBindLayout?.passWord!!.length > 0 && it?.length!! > 0
+        }
     }
-
 }
