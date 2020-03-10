@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.blcs.common.Base.BaseFragment
 import com.blcs.common.utils.spreadFun.isPassword
+import com.blcs.common.utils.spreadFun.isPhone
 import com.blcs.xxx.R
 import com.blcs.xxx.databinding.FragmentRegisterBinding
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -29,16 +30,20 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
                     toast("手机号不能为空")
                     return
                 }
+                if (TextUtils.isEmpty(mBindLayout?.verifyCode)) {
+                    toast("验证码不能为空")
+                    return
+                }
                 if (TextUtils.isEmpty(mBindLayout?.passWord)||TextUtils.isEmpty(mBindLayout?.resPassWord)) {
                     toast("密码不能为空")
                     return
                 }
-                if (mBindLayout?.passWord.equals(mBindLayout?.resPassWord)) {
-                    toast("密码不能为空")
+                if (!mBindLayout?.passWord.equals(mBindLayout?.resPassWord)) {
+                    toast("两次密码输入不同")
                     return
                 }
                 if (!mBindLayout?.passWord!!.isPassword()) {
-                    toast("请输入6-12位由字母与数字组成的密码")
+                    toast("请输入6-12位由字母优先与数字组成的密码")
                     return
                 }
                 toast("注册成功")
@@ -47,7 +52,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
             R.id.iv_close -> mBindLayout?.phone = null
             R.id.btn_vertify_code -> {
                 mBindLayout?.isClick = true
-                btn_vertify_code.textColorResource = R.color.green
             }
         }
     }
@@ -58,16 +62,18 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
         mBindLayout?.click = this
         toolbar_titile.setNavigationOnClickListener{findNavController().popBackStack()}
         et_phone.addTextChangedListener {
-            iv_close.visibility = if (it?.length!! > 0) View.VISIBLE else View.GONE
-            ll_vertify.visibility = if(it?.length == 11) View.VISIBLE else View.GONE
-
+            iv_close.visibility = if (it?.length!! > 0) View.VISIBLE else View.GONE //显示 清空手机号按钮
+            mBindLayout?.isGetCode = it?.toString().isPhone() //验证码是否可点击
+//            btn_vertify_code.isSelected = it?.toString().isPhone() //改变验证码的颜色
+//            ll_vertify.isSelected = it?.toString().isPhone()
+            mBindLayout?.isClick = false
         }
 
         et_password.addTextChangedListener {
-            mBindLayout?.isClick = !TextUtils.isEmpty(mBindLayout?.resPassWord) && mBindLayout?.resPassWord!!.length > 0 && it?.length!! > 0
+            mBindLayout?.isRegister = !TextUtils.isEmpty(mBindLayout?.resPassWord) && mBindLayout?.resPassWord!!.length > 0 && it?.length!! > 0
         }
         et_reset_password.addTextChangedListener {
-            mBindLayout?.isClick = !TextUtils.isEmpty(mBindLayout?.passWord) && mBindLayout?.passWord!!.length > 0 && it?.length!! > 0
+            mBindLayout?.isRegister = !TextUtils.isEmpty(mBindLayout?.passWord) && mBindLayout?.passWord!!.length > 0 && it?.length!! > 0
         }
     }
 }

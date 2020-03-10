@@ -1,9 +1,7 @@
 package com.blcs.xxx.fragment
 
-import android.text.InputType
 import android.text.TextUtils
 import android.view.View
-import android.widget.CompoundButton
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -11,11 +9,8 @@ import androidx.navigation.fragment.findNavController
 import com.blcs.common.Base.BaseFragment
 import com.blcs.common.interfaces.HandleBackInterface
 import com.blcs.common.utils.HandleBackUtil
-import com.blcs.common.utils.L
 import com.blcs.common.utils.SPUtils
-import com.blcs.common.utils.spreadFun.Verify
 import com.blcs.common.utils.spreadFun.isPassword
-import com.blcs.common.utils.spreadFun.isPhone
 import com.blcs.xxx.R
 import com.blcs.xxx.comment.Constant
 import com.blcs.xxx.databinding.FragmentLoginBinding
