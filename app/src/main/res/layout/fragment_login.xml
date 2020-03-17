@@ -126,7 +126,20 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_login" />
-
+        <Button
+            android:id="@+id/btn_auto_login"
+            style="@style/wrap_wrap"
+            android:background="@drawable/bg_gray_radius_soild"
+            android:textColor="@android:color/holo_purple"
+            android:textSize="@dimen/standard_title"
+            app:layout_constraintTop_toBottomOf="@+id/iv_wx"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/space_line2"
+            android:paddingLeft="@dimen/space_line3"
+            android:paddingRight="@dimen/space_line3"
+            android:onClick="@{click}"
+            android:text="一键登录"/>
         <TextView
             android:id="@+id/btn_to_register"
             style="@style/wrap_wrap"

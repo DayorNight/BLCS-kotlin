@@ -8,7 +8,8 @@
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" /> <!-- 震动权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
 
     <application android:networkSecurityConfig="@xml/network_security_config">
         <provider
@@ -23,6 +24,31 @@
         <activity
             android:name=".utils.crash.DefaultErrorActivity"
             android:process=":error_activity" />
+
+        <!--        阿里 一键登录  https://help.aliyun.com/document_detail/144231.html?spm=a2c4g.11186623.6.557.3e142dd4obdAsa-->
+        <!--联通电信授权页-->
+        <activity
+            android:name="com.mobile.auth.gatewayauth.LoginAuthActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind"
+            android:theme="@style/authsdk_activity_dialog" ></activity>
+        <!--协议页面webview-->
+        <activity
+            android:name="com.mobile.auth.gatewayauth.activity.AuthWebVeiwActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind" ></activity>
+        <!--移动授权页-->
+        <activity
+            android:name="com.cmic.sso.sdk.activity.LoginAuthActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind"
+            android:theme="@style/authsdk_activity_dialog" ></activity>
+
     </application>
 
 </manifest>

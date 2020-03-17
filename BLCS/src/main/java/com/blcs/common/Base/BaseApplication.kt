@@ -1,6 +1,8 @@
 package com.blcs.common.Base
 import android.app.Application
+import android.content.Context
 import androidx.fragment.app.Fragment
+import androidx.multidex.MultiDex
 import com.blcs.common.utils.crash.CrashHandler
 import me.jessyan.autosize.AutoSize
 import me.jessyan.autosize.AutoSizeConfig
@@ -36,6 +38,9 @@ abstract class BaseApplication : Application() {
         //AutoSize.autoConvertDensity(getActivity()!!, 1080f, true)
     }
 
-
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MultiDex.install(this)
+    }
 }
 

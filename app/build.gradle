@@ -12,6 +12,7 @@ android {
         targetSdkVersion As.compileSdkVersion
         versionCode As.versionCode
         versionName As.versionName
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {

@@ -10,7 +10,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
@@ -28,10 +28,14 @@ android {
     dataBinding{
         enabled = true
     }
+
+//    dexOptions{//分包异常添加
+//        preDexLibraries = false
+//    }
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar','*.aar'])
     api Dp.kotlin
     api Dp.appcompat
     api Dp.core
@@ -50,5 +54,6 @@ dependencies {
     api Dp.leakcanary
     api Dp.magicIndicator
     api Dp.anko
-
+    api Dp.fastjson
+    api  Dp.multidex
 }

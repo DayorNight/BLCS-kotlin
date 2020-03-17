@@ -6,9 +6,13 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.alibaba.fastjson.JSONObject
 import com.blcs.common.Base.BaseFragment
 import com.blcs.common.interfaces.HandleBackInterface
+import com.blcs.common.manager.AutoLoginManage
+import com.blcs.common.manager.AutoLoginManage.OnTokenResultListener
 import com.blcs.common.utils.HandleBackUtil
+import com.blcs.common.utils.L
 import com.blcs.common.utils.SPUtils
 import com.blcs.common.utils.spreadFun.isPassword
 import com.blcs.xxx.R
@@ -19,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_login.*
 import org.jetbrains.anko.support.v4.toast
 
 /**
- * A simple [Fragment] subclass.
+ * 登录
  */
 class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener,
     HandleBackInterface {
@@ -61,7 +65,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
                 iv_show_psw.isSelected = !iv_show_psw.isSelected
                 et_psw.setSelection(et_psw.text.length)
             }
-
+            R.id.btn_auto_login ->{
+                AutoLoginManage.getInstance(activity).login()
+            }
         }
     }
 
@@ -84,6 +90,25 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
             iv_show_psw.visibility = if (it?.length!! > 0) View.VISIBLE else View.GONE
             mBindLayout?.select = !TextUtils.isEmpty(mBindLayout?.phone) && mBindLayout?.phone!!.length > 0 && it?.length > 0
         }
+        autoLogin()
     }
+    private  fun autoLogin() {
+        AutoLoginManage.getInstance(activity).init(object : OnTokenResultListener {
+            override fun getTokenSuccess(token: String) {
+                activity?.runOnUiThread {
+                    toast("登录成功token： " + token)
+                }
+            }
 
+            override fun getTokenFailed(msg: String) {
+                activity?.runOnUiThread {
+                    toast("登录失败:"+msg)
+                }
+            }
+        }).addUIClickListener(object : AutoLoginManage.OnUIClickImplements() {
+            override fun onClickToggle(jsonObj: JSONObject) {
+                //切换登录方式
+            }
+        })
+    }
 }

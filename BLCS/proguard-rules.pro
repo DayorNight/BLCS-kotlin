@@ -23,3 +23,12 @@
 # =================bugly =============
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
+
+############# 阿里 一键登录 ###########
+-keep class cn.com.chinatelecom.gateway.lib.** {*;}
+-keep class com.unicom.xiaowo.login.** {*;}
+-keep class com.cmic.sso.sdk.** {*;}
+-keep class com.mobile.auth.** {*;}
+-keep class android.support.v4.** { *;}
+-keep class org.json.**{*;}
+-keep class com.alibaba.fastjson.** {*;}
