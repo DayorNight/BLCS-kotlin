@@ -5,7 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.blcs.xxx.MyApp
 import com.blcs.xxx.bean.Student
 import java.util.concurrent.Executors
 
@@ -23,7 +22,7 @@ abstract class RoomDbManager : RoomDatabase() {
         private var instance: RoomDbManager? = null
         fun getInstance(context: Context): RoomDbManager {
             if (instance == null) {
-                synchronized(MyApp::class.java) {
+                synchronized(RoomDbManager::class.java) {
                     if (instance == null) {
                         instance = Room.databaseBuilder(
                             context.applicationContext,

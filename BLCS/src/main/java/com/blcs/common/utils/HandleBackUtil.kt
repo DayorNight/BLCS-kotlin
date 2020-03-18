@@ -17,7 +17,7 @@ object HandleBackUtil {
      * @see .handleBackPress
      */
     fun handleBackPress(fragmentManager: FragmentManager): Boolean {
-        val fragments = fragmentManager.fragments ?: return false
+        val fragments = fragmentManager.fragments
         for (i in fragments.indices.reversed()) {
             val child = fragments[i]
 

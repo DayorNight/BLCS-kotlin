@@ -63,7 +63,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
         toolbar_titile.setNavigationOnClickListener{findNavController().popBackStack()}
         et_phone.addTextChangedListener {
             iv_close.visibility = if (it?.length!! > 0) View.VISIBLE else View.GONE //显示 清空手机号按钮
-            mBindLayout?.isGetCode = it?.toString().isPhone() //验证码是否可点击
+            mBindLayout?.isGetCode = it.toString().isPhone() //验证码是否可点击
 //            btn_vertify_code.isSelected = it?.toString().isPhone() //改变验证码的颜色
 //            ll_vertify.isSelected = it?.toString().isPhone()
             mBindLayout?.isClick = false

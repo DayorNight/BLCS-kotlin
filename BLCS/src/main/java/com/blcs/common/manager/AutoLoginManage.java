@@ -24,7 +24,6 @@ import com.mobile.auth.gatewayauth.model.TokenRet;
  */
 public class AutoLoginManage {
     private PhoneNumberAuthHelper mAlicomAuthHelper;
-    private String KEY_AUTO_LOGIN = "xxxx";
     private static  final int TIME_OUT = 5000;
     private boolean checkRet;
     private static AutoLoginManage autoLoginManage;
@@ -48,7 +47,7 @@ public class AutoLoginManage {
      * 初始化
      * @param listener
      */
-    public AutoLoginManage init(OnTokenResultListener listener){
+    public AutoLoginManage init(String keySDK,OnTokenResultListener listener){
         // 1.init get token callback Listener
         TokenResultListener mTokenListener = new TokenResultListener() {
             @Override
@@ -84,7 +83,7 @@ public class AutoLoginManage {
         // 2. 获取认证实例
         mAlicomAuthHelper = PhoneNumberAuthHelper.getInstance(context, mTokenListener);
         //设置SDK秘钥
-        mAlicomAuthHelper.setAuthSDKInfo(KEY_AUTO_LOGIN);
+        mAlicomAuthHelper.setAuthSDKInfo(keySDK);
         //检查终端是否支持号码认证
         checkRet = mAlicomAuthHelper.checkEnvAvailable();
         mAlicomAuthHelper.setAuthListener(mTokenListener);

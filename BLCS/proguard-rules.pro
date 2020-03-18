@@ -32,3 +32,11 @@
 -keep class android.support.v4.** { *;}
 -keep class org.json.**{*;}
 -keep class com.alibaba.fastjson.** {*;}
+
+############# bugly ###########
+-keep class android.support.**{*;}
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+# tinker混淆规则
+-dontwarn com.tencent.tinker.**
+-keep class com.tencent.tinker.** { *; }

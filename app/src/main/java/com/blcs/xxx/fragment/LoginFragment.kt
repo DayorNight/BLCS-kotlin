@@ -18,9 +18,12 @@ import com.blcs.common.utils.spreadFun.isPassword
 import com.blcs.xxx.R
 import com.blcs.xxx.comment.Constant
 import com.blcs.xxx.databinding.FragmentLoginBinding
+import com.blcs.xxx.utils.Constants
 import com.blcs.xxx.viewModel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.jetbrains.anko.support.v4.toast
+import java.lang.ClassCastException
+import java.lang.RuntimeException
 
 /**
  * 登录
@@ -83,17 +86,17 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
         }
         et_phone.addTextChangedListener {
             iv_clean.visibility = if (it?.length!! > 0) View.VISIBLE else View.GONE
-            mBindLayout?.select = !TextUtils.isEmpty(mBindLayout?.passWord) && mBindLayout?.passWord!!.length > 0 && it?.length > 0
+            mBindLayout?.select = !TextUtils.isEmpty(mBindLayout?.passWord) && mBindLayout?.passWord!!.length > 0 && it.length > 0
 
         }
         et_psw.addTextChangedListener {
             iv_show_psw.visibility = if (it?.length!! > 0) View.VISIBLE else View.GONE
-            mBindLayout?.select = !TextUtils.isEmpty(mBindLayout?.phone) && mBindLayout?.phone!!.length > 0 && it?.length > 0
+            mBindLayout?.select = !TextUtils.isEmpty(mBindLayout?.phone) && mBindLayout?.phone!!.length > 0 && it.length > 0
         }
         autoLogin()
     }
     private  fun autoLogin() {
-        AutoLoginManage.getInstance(activity).init(object : OnTokenResultListener {
+        AutoLoginManage.getInstance(activity).init(Constants.AUTO_LOGIN_KEY ,object : OnTokenResultListener {
             override fun getTokenSuccess(token: String) {
                 activity?.runOnUiThread {
                     toast("登录成功token： " + token)

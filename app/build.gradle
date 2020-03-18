@@ -4,6 +4,14 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'bugly'
+// 依赖插件脚本
+apply from: 'tinker-support.gradle'
+//Bugly符号表配置
+bugly {
+    appId = 'fe108399e6' // 注册时分配的App ID
+    appKey = 'dbcf9e61-6051-4d78-9359-583a04a1e14e' // 注册时分配的App Key
+}
 android {
     compileSdkVersion As.compileSdkVersion
     defaultConfig {
@@ -45,6 +53,7 @@ android {
     dataBinding{
         enabled = true
     }
+
 }
 
 dependencies {

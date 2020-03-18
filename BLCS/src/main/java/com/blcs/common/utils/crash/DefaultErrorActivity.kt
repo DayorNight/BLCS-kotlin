@@ -56,12 +56,11 @@ class DefaultErrorActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun copyErrorToClipboard() {
         val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        if (clipboard != null) {
             val clip = ClipData.newPlainText(getString(R.string.error_information), exception)
             clipboard.setPrimaryClip(clip)
             Toast.makeText(this@DefaultErrorActivity, getString(R.string.copy), Toast.LENGTH_SHORT)
                 .show()
-        }
+
     }
 
     override fun onClick(v: View) {
@@ -88,7 +87,7 @@ class DefaultErrorActivity : AppCompatActivity(), View.OnClickListener {
                 DialogInterface.OnClickListener { dialog, which -> copyErrorToClipboard() }).show()
         val textView = dialog.findViewById<TextView>(android.R.id.message)
         if (textView != null) {
-            textView!!.setTextSize(
+            textView.setTextSize(
                 TypedValue.COMPLEX_UNIT_PX,
                 resources.getDimension(R.dimen.standard_work)
             )

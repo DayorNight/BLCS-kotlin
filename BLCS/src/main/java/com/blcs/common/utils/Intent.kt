@@ -8,11 +8,10 @@ import androidx.fragment.app.Fragment
 
 object Intent {
     fun Intent.toHome(activity: Activity) {
-//
-//        val intent = Intent()
-//        intent.setAction(Intent.ACTION_MAIN)// 设置Intent动作
-//        intent.addCategory(Intent.CATEGORY_HOME)// 设置Intent种类
-//        activity.startActivity(intent)
+        val intent = Intent()
+        intent.setAction(Intent.ACTION_MAIN)// 设置Intent动作
+        intent.addCategory(Intent.CATEGORY_HOME)// 设置Intent种类
+        activity.startActivity(intent)
     }
 
     fun Context.toast(msg: String) {

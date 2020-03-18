@@ -2,10 +2,7 @@ package com.blcs.common.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.blcs.common.Base.BaseApplication
-
-import java.lang.reflect.InvocationTargetException
-import java.lang.reflect.Method
+import com.tencent.bugly.Bugly.applicationContext
 
 /**
  * SharedPreferences的封装
@@ -13,7 +10,7 @@ import java.lang.reflect.Method
 object SPUtils {
     private val name = "APP_Config"
     private val prefs: SharedPreferences by lazy {
-        BaseApplication.instance!!.applicationContext.getSharedPreferences(
+        applicationContext.getSharedPreferences(
             name,
             Context.MODE_PRIVATE
         )

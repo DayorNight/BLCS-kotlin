@@ -1,46 +1,15 @@
 package com.blcs.common.Base
-import android.app.Application
-import android.content.Context
-import androidx.fragment.app.Fragment
-import androidx.multidex.MultiDex
-import com.blcs.common.utils.crash.CrashHandler
-import me.jessyan.autosize.AutoSize
-import me.jessyan.autosize.AutoSizeConfig
+
+import com.tencent.tinker.loader.app.TinkerApplication
+import com.tencent.tinker.loader.shareutil.ShareConstants
 
 /**
- * A simple [Fragment] subclass.
+ * @Author BLCS
+ * @Time 2020/3/18 11:24
  */
-abstract class BaseApplication : Application() {
-    companion object{
-        var instance :BaseApplication? = null
-    }
-    override fun onCreate() {
-        super.onCreate()
-        screenAdapter()
-        //全局异常处理
-        CrashHandler.getInstance(applicationContext)
-        instance = this
-
-    }
-
-    /**
-     * 屏幕适配初始化
-     */
-    fun screenAdapter(){
-        AutoSize.initCompatMultiProcess(this)
-        AutoSizeConfig.getInstance()
-            .setCustomFragment(true)
-            .setLog(false)
-            .setUseDeviceSize(true)
-        //由于某些原因, 屏幕旋转后 Fragment 的重建, 会导致框架对 Fragment 的自定义适配参数失去效果
-        //所以如果您的 Fragment 允许屏幕旋转, 则请在 onCreateView 手动调用一次 AutoSize.autoConvertDensity()
-        //如果您的 Fragment 不允许屏幕旋转, 则可以将下面调用 AutoSize.autoConvertDensity() 的代码删除掉
-        //AutoSize.autoConvertDensity(getActivity()!!, 1080f, true)
-    }
-
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-        MultiDex.install(this)
-    }
-}
-
+abstract class BaseApplication(applicationLikePath: String) : TinkerApplication(
+    ShareConstants.TINKER_ENABLE_ALL,
+    applicationLikePath,
+    "com.tencent.tinker.loader.TinkerLoader",
+    false
+)

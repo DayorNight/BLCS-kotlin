@@ -45,11 +45,10 @@ class AppManager private constructor() {
      * 结束指定的Activity
      */
     fun finishActivity(activity: Activity?) {
-        var activity = activity
+
         if (activity != null) {
             activityStack!!.remove(activity)
             activity.finish()
-            activity = null
         }
     }
 

@@ -28,4 +28,9 @@ abstract class BaseFragment<T : ViewDataBinding?> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initUI()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (mBindLayout!=null)  mBindLayout = null
+    }
 }

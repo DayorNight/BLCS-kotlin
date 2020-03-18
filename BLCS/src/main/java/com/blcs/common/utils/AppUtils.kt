@@ -15,10 +15,13 @@ import android.widget.Toast
 import androidx.core.content.FileProvider
 import java.io.File
 import java.util.ArrayList
+import java.io.BufferedReader
+import java.io.FileReader
+import java.io.IOException
+
 
 /**
  * TODO 跟App相关的辅助类
- *
  * 1、获取应用程序名称
  * 2、获取应用程序版本名称信息
  * 3、获取版本号
@@ -27,13 +30,12 @@ import java.util.ArrayList
  * 6、启动安装应用程序
  * 7、获取渠道名
  * 8、双击退出
+ * 8、获取进程名
  */
 object AppUtils {
 
 
-    /**
-     * 8、双击退出
-     */
+
     private var firstTime: Long = 0
 
     /**
@@ -196,7 +198,9 @@ object AppUtils {
 
         return ""
     }
-
+    /**
+     * 8、双击退出
+     */
     fun againstClick(context: Activity) {
         val secondTime = System.currentTimeMillis()
         if (secondTime - firstTime > 2000) {
@@ -205,5 +209,30 @@ object AppUtils {
         } else {
             context.finish()
         }
+    }
+
+    /**
+     * 获取进程名
+     */
+    fun getProcessName(pid: Int): String? {
+        var reader: BufferedReader? = null
+        try {
+            reader = BufferedReader(FileReader("/proc/$pid/cmdline"))
+            var processName = reader.readLine()
+            if (!TextUtils.isEmpty(processName)) {
+                processName = processName.trim({ it <= ' ' })
+            }
+            return processName
+        } catch (throwable: Throwable) {
+            throwable.printStackTrace()
+        } finally {
+            try {
+                 reader?.close()
+            } catch (exception: IOException) {
+                exception.printStackTrace()
+            }
+
+        }
+        return null
     }
 }
