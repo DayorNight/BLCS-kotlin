@@ -893,3 +893,6 @@
 -keep class com.hianalytics.android.**{*;}
 -keep class com.huawei.updatesdk.**{*;}
 -keep class com.huawei.hms.**{*;}
+
+################# 小米推送 #######
+ -keep class com.xiaomi.mipush.sdk.DemoMessageReceiver {*;}

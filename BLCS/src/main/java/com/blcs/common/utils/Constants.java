@@ -6,4 +6,5 @@ package com.blcs.common.utils;
  */
 public class Constants {
     public static final String SP_PUSH = "TOKEN";
+
 }

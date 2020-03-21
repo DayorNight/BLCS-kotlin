@@ -16,7 +16,8 @@ public class HuaweiPushService extends HmsMessageService {
             super.onNewToken(token);
             L.e("============"+token);
             PushTokenMgr.getInstance().setPushToken(token);
-            HMSAgent.getInstance().listener.getToken(token);
+            HMSAgent.OnTokenResultListener listener = HMSAgent.getInstance().listener;
+            if (listener!=null) listener.getToken(token);
       }
 
     @Override
@@ -27,7 +28,7 @@ public class HuaweiPushService extends HmsMessageService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        L.e("========"+remoteMessage);
+        L.e("========"+remoteMessage.getData());
         super.onMessageReceived(remoteMessage);
     }
 

@@ -68,4 +68,6 @@ dependencies {
     api Dp.permiss
     api Dp.huawei_push
     kapt Dp.permiss_processor
+    //https://dev.mi.com/console/doc/detail?pId=41
+    api files('libs\\MiPush_SDK_Client_3_7_5.jar')
 }
