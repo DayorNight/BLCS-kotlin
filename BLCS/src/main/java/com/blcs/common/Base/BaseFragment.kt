@@ -13,24 +13,25 @@ import androidx.databinding.ViewDataBinding
  * A simple [Fragment] subclass.
  */
 abstract class BaseFragment<T : ViewDataBinding?> : Fragment() {
-    var mBindLayout: T? = null
+    var mView : T? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBindLayout = DataBindingUtil.inflate<T>(inflater, setLayout(), container, false)
+        var  mBindLayout = DataBindingUtil.inflate<T>(inflater, setLayout(), container, false)
+        mView =mBindLayout
         return  mBindLayout?.getRoot()
     }
     abstract fun setLayout():Int
     abstract fun initUI()
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onStart() {
+        super.onStart()
         initUI()
     }
-
     override fun onDestroy() {
+
         super.onDestroy()
-        if (mBindLayout!=null)  mBindLayout = null
+        if(mView!=null) mView= null
     }
+
 }

@@ -8,6 +8,9 @@ apply plugin: 'bugly'
 // 依赖插件脚本
 apply from: 'tinker-support.gradle'
 //Bugly符号表配置
+apply plugin: 'com.huawei.agconnect'
+
+
 bugly {
     appId = 'fe108399e6' // 注册时分配的App ID
     appKey = 'dbcf9e61-6051-4d78-9359-583a04a1e14e' // 注册时分配的App Key
@@ -21,6 +24,7 @@ android {
         versionCode As.versionCode
         versionName As.versionName
         multiDexEnabled true
+        resConfigs "en", "zh-rCN"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
@@ -59,4 +63,5 @@ android {
 dependencies {
     implementation project(path: ':BLCS')
     kapt Dp.roomCompiler
+    kapt Dp.permiss_processor
 }

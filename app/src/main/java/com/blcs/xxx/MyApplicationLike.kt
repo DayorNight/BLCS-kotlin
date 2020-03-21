@@ -3,7 +3,8 @@ package com.blcs.xxx
 import android.app.Application
 import android.content.Intent
 import com.blcs.common.Base.BaseApplicationLike
-import com.blcs.xxx.utils.Constants
+import com.blcs.common.utils.AppUtils
+import com.blcs.xxx.comment.Api_Constant
 
 /**
  * @Author BLCS
@@ -25,8 +26,11 @@ class MyApplicationLike(
     tinkerResultIntent
 ) {
 
-    override fun setBuglyAppId() = Constants.BUGLY_APPID
+    override fun setBuglyAppId() = Api_Constant.BUGLY_APPID
     override fun onCreate() {
         super.onCreate()
+
+        if (AppUtils.isMainProcess(application)) {
+        }
     }
 }

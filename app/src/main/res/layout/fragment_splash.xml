@@ -9,7 +9,8 @@
         <variable name="isShow" type="Boolean"/>
         <variable name="adapter" type="FragmentStatePagerAdapter"/>
     </data>
-    <FrameLayout style="@style/match_match">
+    <FrameLayout style="@style/match_match"
+        android:background="@mipmap/ic_app512">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_splash"

@@ -12,6 +12,7 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
         ndk {
@@ -30,7 +31,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 
@@ -40,7 +41,7 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+    api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     api Dp.kotlin
     api Dp.appcompat
     api Dp.core
@@ -64,4 +65,7 @@ dependencies {
     api Dp.crashreport
     api Dp.crashreportNdk
     api Dp.tinker
+    api Dp.permiss
+    api Dp.huawei_push
+    kapt Dp.permiss_processor
 }

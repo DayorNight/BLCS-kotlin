@@ -23,32 +23,39 @@ ext {
             bugly           : "1.4.2",
             buglyNDK        : "3.7.1",
             tinkerVS        : "1.9.9",
+            permiss         : "4.6.0",
+            huawei         : "4.0.2.300",
     ]
 
     Dp = [
-            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$Vs.kotlin_version",
-            appcompat       : "androidx.appcompat:appcompat:$Vs.appcompat",
-            core            : "androidx.core:core-ktx:$Vs.appcompat",
-            constraintlayout: "androidx.constraintlayout:constraintlayout:$Vs.constraintlayout",
-            autosize        : "me.jessyan:autosize:$Vs.autosize",
-            room            : "android.arch.persistence.room:runtime:$Vs.appcompat",
-            roomCompiler    : "android.arch.persistence.room:compiler:$Vs.appcompat",
-            navigation      : "androidx.navigation:navigation-fragment-ktx:$Vs.navigation",
-            navigationKtx   : "androidx.navigation:navigation-ui-ktx:$Vs.navigation",
-            rxjava3         : "io.reactivex.rxjava3:rxjava:$Vs.rxjava3",
-            lifecycle       : "androidx.lifecycle:lifecycle-extensions:$Vs.lifecycle",
-            paging          : "androidx.paging:paging-runtime-ktx:$Vs.paging",
+            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$Vs.kotlin_version",
+            appcompat        : "androidx.appcompat:appcompat:$Vs.appcompat",
+            core             : "androidx.core:core-ktx:$Vs.appcompat",
+            constraintlayout : "androidx.constraintlayout:constraintlayout:$Vs.constraintlayout",
+            autosize         : "me.jessyan:autosize:$Vs.autosize",
+            room             : "android.arch.persistence.room:runtime:$Vs.appcompat",
+            roomCompiler     : "android.arch.persistence.room:compiler:$Vs.appcompat",
+            navigation       : "androidx.navigation:navigation-fragment-ktx:$Vs.navigation",
+            navigationKtx    : "androidx.navigation:navigation-ui-ktx:$Vs.navigation",
+            rxjava3          : "io.reactivex.rxjava3:rxjava:$Vs.rxjava3",
+            lifecycle        : "androidx.lifecycle:lifecycle-extensions:$Vs.lifecycle",
+            paging           : "androidx.paging:paging-runtime-ktx:$Vs.paging",
             // LeakCanary：https://github.com/square/leakcanary 检测内存泄露工具
-            leakcanary      : "com.squareup.leakcanary:leakcanary-android:$Vs.leakcanary",
+            leakcanary       : "com.squareup.leakcanary:leakcanary-android:$Vs.leakcanary",
             //viewpager 指示器： https://github.com/hackware1993/MagicIndicator
-            magicIndicator  : "com.github.hackware1993:MagicIndicator:$Vs.magicIndicator",
-            anko            : "org.jetbrains.anko:anko:$Vs.anko",
-            fastjson        : "com.alibaba:fastjson:$Vs.fastjson",
-            multidex        : "com.android.support:multidex:$Vs.multidex",
+            magicIndicator   : "com.github.hackware1993:MagicIndicator:$Vs.magicIndicator",
+            anko             : "org.jetbrains.anko:anko:$Vs.anko",
+            fastjson         : "com.alibaba:fastjson:$Vs.fastjson",
+            multidex         : "com.android.support:multidex:$Vs.multidex",
             // bugly https://bugly.qq.com/docs/user-guide/instruction-manual-android/?v=20200312155538
-            crashreport     : "com.tencent.bugly:crashreport_upgrade:$Vs.bugly",
-            crashreportNdk  : "com.tencent.bugly:nativecrashreport:$Vs.buglyNDK",
-            tinker  : "com.tencent.tinker:tinker-android-lib:$Vs.tinkerVS"
+            crashreport      : "com.tencent.bugly:crashreport_upgrade:$Vs.bugly",
+            crashreportNdk   : "com.tencent.bugly:nativecrashreport:$Vs.buglyNDK",
+            tinker           : "com.tencent.tinker:tinker-android-lib:$Vs.tinkerVS",
+            // permissionsdispatcher：https://github.com/permissions-dispatcher/PermissionsDispatcher
+            permiss          : "org.permissionsdispatcher:permissionsdispatcher:$Vs.permiss",
+            permiss_processor: "org.permissionsdispatcher:permissionsdispatcher-processor:$Vs.permiss",
+            // 华为推送：https://developer.huawei.com/consumer/cn/codelab/HMSPushKit/index.html#6
+            huawei_push : "com.huawei.hms:push:$Vs.huawei"
 
     ]
 }

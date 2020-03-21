@@ -2,7 +2,6 @@ package com.blcs.common.utils.crash
 
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
 
@@ -16,7 +15,6 @@ import java.io.File
 import java.io.FilenameFilter
 import java.io.PrintWriter
 import java.io.StringWriter
-import java.io.Writer
 import java.text.SimpleDateFormat
 import java.util.Locale
 

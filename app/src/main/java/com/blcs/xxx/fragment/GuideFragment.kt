@@ -5,11 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.blcs.common.Base.BaseFragment
-import com.blcs.common.utils.L
 import com.blcs.xxx.R
 import com.blcs.xxx.databinding.FragmentGuideBinding
 import kotlinx.android.synthetic.main.fragment_guide.*
-import java.text.FieldPosition
 
 /**
  * A simple [Fragment] subclass.
