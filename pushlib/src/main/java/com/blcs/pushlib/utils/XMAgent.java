@@ -1,4 +1,4 @@
-package com.blcs.common.utils.push;
+package com.blcs.pushlib.utils;
 
 import android.content.Context;
 import android.os.Build;

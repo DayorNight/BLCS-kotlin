@@ -1,12 +1,7 @@
-package com.blcs.common.utils.push;
+package com.blcs.pushlib.utils;
 
-import android.provider.SyncStateContract;
+import android.content.Context;
 import android.text.TextUtils;
-
-import com.blcs.common.utils.Constants;
-import com.blcs.common.utils.L;
-import com.blcs.common.utils.SPUtils;
-
 
 /**
  * 管理推送 token
@@ -21,17 +16,17 @@ public class PushTokenMgr {
         return ThirdPushTokenHolder.instance;
     }
 
-    public String getPushToken() {
+    public String getPushToken(Context context) {
         if (TextUtils.isEmpty(mThirdPushToken)){
-            return (String) SPUtils.INSTANCE.getValue(Constants.SP_PUSH, "");
+            return (String) SPUtils.get(context,SPUtils.SP_PUSH, "");
         }else{
             return mThirdPushToken;
         }
     }
 
-    public void setPushToken(String mThirdPushToken) {
+    public void setPushToken(Context context,String mThirdPushToken) {
         this.mThirdPushToken = mThirdPushToken;
-        SPUtils.INSTANCE.saveValue(Constants.SP_PUSH,mThirdPushToken);
+        SPUtils.put(context,SPUtils.SP_PUSH,mThirdPushToken);
     }
 
     private static class ThirdPushTokenHolder {

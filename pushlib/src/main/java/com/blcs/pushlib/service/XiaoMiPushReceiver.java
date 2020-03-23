@@ -1,11 +1,11 @@
-package com.blcs.common.service;
+package com.blcs.pushlib.service;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
-import com.blcs.common.utils.L;
-import com.blcs.common.utils.push.PushTokenMgr;
-import com.blcs.common.utils.push.PushUtils;
+
+import com.blcs.pushlib.utils.PushTokenMgr;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
@@ -20,6 +20,7 @@ import java.util.List;
  * @Time 2020/3/21 17:27
  */
 public class XiaoMiPushReceiver extends PushMessageReceiver {
+    private static final String TAG = "XiaoMiPushReceiver";
     private String mRegId;
     private long mResultCode = -1;
     private String mReason;
@@ -35,7 +36,8 @@ public class XiaoMiPushReceiver extends PushMessageReceiver {
     public void onReceivePassThroughMessage(Context context, MiPushMessage message) {
         //接收服务器推送的透传消息，消息封装在 MiPushMessage类中。
         mMessage = message.getContent();
-        L.i("===="+mMessage);
+
+        Log.i(TAG, "onReceivePassThroughMessage: "+ mMessage);
         if (!TextUtils.isEmpty(message.getTopic())) {
             mTopic = message.getTopic();
         } else if (!TextUtils.isEmpty(message.getAlias())) {
@@ -49,7 +51,7 @@ public class XiaoMiPushReceiver extends PushMessageReceiver {
     public void onNotificationMessageClicked(Context context, MiPushMessage message) {
         //接收服务器推送的通知消息，用户点击后触发，消息封装在 MiPushMessage类中。
         mMessage = message.getContent();
-        L.i("===="+mMessage);
+        Log.i(TAG, "onNotificationMessageClicked: "+mMessage );
         if (!TextUtils.isEmpty(message.getTopic())) {
             mTopic = message.getTopic();
         } else if (!TextUtils.isEmpty(message.getAlias())) {
@@ -63,7 +65,7 @@ public class XiaoMiPushReceiver extends PushMessageReceiver {
     public void onNotificationMessageArrived(Context context, MiPushMessage message) {
         //接收服务器推送的通知消息，消息到达客户端时触发，还可以接受应用在前台时不弹出通知的通知消息，消息封装在 MiPushMessage类中。在MIUI上，只有应用处于启动状态，或者自启动白名单中，才可以通过此方法接受到该消息。
         mMessage = message.getContent();
-        L.i("===="+mMessage);
+        Log.i(TAG, "onNotificationMessageArrived: "+mMessage );
         if (!TextUtils.isEmpty(message.getTopic())) {
             mTopic = message.getTopic();
         } else if (!TextUtils.isEmpty(message.getAlias())) {
@@ -80,7 +82,7 @@ public class XiaoMiPushReceiver extends PushMessageReceiver {
         List<String> arguments = message.getCommandArguments();
         String cmdArg1 = ((arguments != null && arguments.size() > 0) ? arguments.get(0) : null);
         String cmdArg2 = ((arguments != null && arguments.size() > 1) ? arguments.get(1) : null);
-        L.i("====mRegId "+cmdArg1);
+        Log.i(TAG, "onCommandResult: "+cmdArg1 );
         if (MiPushClient.COMMAND_REGISTER.equals(command)) {
             if (message.getResultCode() == ErrorCode.SUCCESS) {
                 mRegId = cmdArg1;
@@ -119,8 +121,8 @@ public class XiaoMiPushReceiver extends PushMessageReceiver {
         if (MiPushClient.COMMAND_REGISTER.equals(command)) {
             if (message.getResultCode() == ErrorCode.SUCCESS) {
                 mRegId = cmdArg1;
-                L.i("====mRegId "+cmdArg1);
-                PushTokenMgr.getInstance().setPushToken(mRegId);
+                Log.i(TAG, "onReceiveRegisterResult: "+cmdArg1);
+                PushTokenMgr.getInstance().setPushToken(context,mRegId);
             }
         }
     }

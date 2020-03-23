@@ -11,9 +11,7 @@ import com.blcs.common.interfaces.HandleBackInterface
 import com.blcs.common.manager.AutoLoginManage
 import com.blcs.common.manager.AutoLoginManage.OnTokenResultListener
 import com.blcs.common.utils.HandleBackUtil
-import com.blcs.common.utils.L
 import com.blcs.common.utils.SPUtils
-import com.blcs.common.utils.push.HMSAgent
 import com.blcs.common.utils.spreadFun.isPassword
 import com.blcs.xxx.R
 import com.blcs.xxx.comment.Sp_Constant
@@ -53,9 +51,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
 
                 if (rb_remember_psw.isChecked) {
                     val password = mView?.phone!! + "|" + mView?.passWord!!
-                    SPUtils.saveValue(Sp_Constant.SP_REMEMBER_PASSWORD, password)
+                    SPUtils.put(activity,Sp_Constant.SP_REMEMBER_PASSWORD, password)
                 } else {
-                    SPUtils.remove(Sp_Constant.SP_REMEMBER_PASSWORD)
+                    SPUtils.remove(activity,Sp_Constant.SP_REMEMBER_PASSWORD)
                 }
             }
             R.id.btn_to_fin -> toast("找回密码")
@@ -76,7 +74,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
 
     override fun initUI() {
         mView?.click = this
-        val value = SPUtils.getValue(Sp_Constant.SP_REMEMBER_PASSWORD, "") as String
+        val value = SPUtils.get(activity,Sp_Constant.SP_REMEMBER_PASSWORD, "") as String
         if (!TextUtils.isEmpty(value)) {
             val split = value.split("|")
             mView?.phone = split[0]

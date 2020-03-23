@@ -64,4 +64,5 @@ dependencies {
     implementation project(path: ':BLCS')
     kapt Dp.roomCompiler
     kapt Dp.permiss_processor
+    implementation project(path: ':pushlib')
 }

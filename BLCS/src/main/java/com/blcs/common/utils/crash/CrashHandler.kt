@@ -73,12 +73,12 @@ class CrashHandler private constructor(context: Context) : Thread.UncaughtExcept
      * @param ctx
      */
     private fun sendCrashReportsToServer(ctx: Context?) {
-        val infomation = SPUtils.getValue( SP_BUG, "") as String?
+        val infomation = SPUtils.get(ctx, SP_BUG, "") as String?
         //上传到自己的服务器
         //失败保存到Sp  下次启动的时候判断是否有值 进行提交
         if (infomation!!.length > 0) {
             //存储错误报告
-            SPUtils.saveValue( SP_BUG, bugInfomation!!.toString())
+            SPUtils.put(ctx, SP_BUG, bugInfomation!!.toString())
         }
         L.e("未做上传服务器处理")
         AppManager.appManager.AppExit()

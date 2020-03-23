@@ -1,11 +1,11 @@
-package com.blcs.common.utils.push;
+package com.blcs.pushlib.utils;
 
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 
-import com.blcs.common.manager.ExecutorsMgr;
-import com.blcs.common.utils.L;
+import com.blcs.pushlib.ExecutorsMgr;
 import com.huawei.agconnect.config.AGConnectServicesConfig;
 import com.huawei.hms.aaid.HmsInstanceId;
 
@@ -19,6 +19,7 @@ import com.huawei.hms.aaid.HmsInstanceId;
 //    }//调用
 
 public class HMSAgent {
+    private static final String TAG = "HMSAgent";
     private static HMSAgent hmsAgent;
     public static HMSAgent getInstance(){
         if (hmsAgent ==null){
@@ -49,11 +50,11 @@ public class HMSAgent {
                     String appId = AGConnectServicesConfig.fromContext(context).getString("client/app_id");
                     String pushtoken = HmsInstanceId.getInstance(context).getToken(appId, "HCM");
                     if(!TextUtils.isEmpty(pushtoken)) {
-                        PushTokenMgr.getInstance().setPushToken(pushtoken);
+                        PushTokenMgr.getInstance().setPushToken(context,pushtoken);
                         if (listener!=null) listener.getToken(pushtoken);
                     }
                 } catch (Exception e) {
-                    L.e("getToken failed, " + e);
+                    Log.i(TAG, "run: "+e);
                 }
             }
         });

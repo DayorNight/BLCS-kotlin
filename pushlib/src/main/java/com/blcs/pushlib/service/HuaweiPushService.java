@@ -1,8 +1,9 @@
-package com.blcs.common.service;
+package com.blcs.pushlib.service;
 
-import com.blcs.common.utils.L;
-import com.blcs.common.utils.push.HMSAgent;
-import com.blcs.common.utils.push.PushTokenMgr;
+import android.util.Log;
+
+import com.blcs.pushlib.utils.HMSAgent;
+import com.blcs.pushlib.utils.PushTokenMgr;
 import com.huawei.hms.push.HmsMessageService;
 import com.huawei.hms.push.RemoteMessage;
 
@@ -11,30 +12,31 @@ import com.huawei.hms.push.RemoteMessage;
  * @Time 2020/3/21 10:25
  */
 public class HuaweiPushService extends HmsMessageService {
+    private static final String TAG = "HuaweiPushService";
         @Override
         public void onNewToken(String token) {
             super.onNewToken(token);
-            L.e("============"+token);
-            PushTokenMgr.getInstance().setPushToken(token);
+            Log.i(TAG, "onNewToken: "+token);
+            PushTokenMgr.getInstance().setPushToken(getApplicationContext(),token);
             HMSAgent.OnTokenResultListener listener = HMSAgent.getInstance().listener;
             if (listener!=null) listener.getToken(token);
       }
 
     @Override
     public void onTokenError(Exception e) {
-        L.e("========"+e.getMessage());
+        Log.i(TAG, "onTokenError: "+e.getMessage());
         super.onTokenError(e);
     }
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        L.e("========"+remoteMessage.getData());
+        Log.i(TAG, "onMessageReceived: "+remoteMessage.getData());
         super.onMessageReceived(remoteMessage);
     }
 
     @Override
     public void onMessageSent(String s) {
-        L.e("========"+s);
+        Log.i(TAG, "onMessageSent: "+ s);
         super.onMessageSent(s);
     }
 }

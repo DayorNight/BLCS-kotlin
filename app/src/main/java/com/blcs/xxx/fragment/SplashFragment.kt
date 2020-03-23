@@ -22,10 +22,10 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
     override fun initUI() {
         view?.postDelayed({
-            val isFrist = SPUtils.getValue(Sp_Constant.SP_FIRST, false) as Boolean
+            val isFrist = SPUtils.get(activity,Sp_Constant.SP_FIRST, false) as Boolean
             mView?.isShow = !isFrist
             if (!isFrist) {
-                SPUtils.saveValue(Sp_Constant.SP_FIRST, !isFrist)
+                SPUtils.put(activity,Sp_Constant.SP_FIRST, !isFrist)
             }else{
                 findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
             }
