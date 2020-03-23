@@ -1,6 +1,7 @@
 package com.blcs.common.utils.push;
 
 import android.content.Context;
+import android.os.Build;
 
 import com.xiaomi.mipush.sdk.MiPushClient;
 
@@ -11,9 +12,17 @@ import com.xiaomi.mipush.sdk.MiPushClient;
  */
 public class XMAgent {
     /**
+     * 判断是否是小米手机
+     * @return
+     */
+    public static boolean isBrandXiaoMi() {
+        return "xiaomi".equalsIgnoreCase(Build.BRAND) || "xiaomi".equalsIgnoreCase(Build.MANUFACTURER);
+    }
+    /**
      * 注册推送
      */
     public static void register(Context context,String AppId,String AppKey){
+        if (!isBrandXiaoMi()) return;
         MiPushClient.registerPush(context, AppId, AppKey);
     }
 

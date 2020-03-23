@@ -4,6 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.blcs.common.utils.L;
+import com.blcs.common.utils.push.PushTokenMgr;
+import com.blcs.common.utils.push.PushUtils;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
@@ -118,6 +120,7 @@ public class XiaoMiPushReceiver extends PushMessageReceiver {
             if (message.getResultCode() == ErrorCode.SUCCESS) {
                 mRegId = cmdArg1;
                 L.i("====mRegId "+cmdArg1);
+                PushTokenMgr.getInstance().setPushToken(mRegId);
             }
         }
     }

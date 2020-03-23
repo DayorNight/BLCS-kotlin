@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Intent
 import com.blcs.common.Base.BaseApplicationLike
 import com.blcs.common.utils.AppUtils
+import com.blcs.common.utils.L
 import com.blcs.common.utils.push.HMSAgent
 import com.blcs.common.utils.push.XMAgent
 import com.blcs.xxx.comment.Api_Constant

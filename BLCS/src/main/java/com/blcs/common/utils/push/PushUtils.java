@@ -9,9 +9,7 @@ import android.os.Build;
  */
 public class PushUtils {
 
-    public static boolean isBrandXiaoMi() {
-        return "xiaomi".equalsIgnoreCase(Build.BRAND) || "xiaomi".equalsIgnoreCase(Build.MANUFACTURER);
-    }
+
 
     public static boolean isBrandMeizu() {
         return "meizu".equalsIgnoreCase(Build.BRAND) || "meizu".equalsIgnoreCase(Build.MANUFACTURER) || "22c4185e".equalsIgnoreCase(Build.BRAND);
