@@ -1,2 +1,2 @@
-include ':app', ':BLCS', ':pushlib'
+include ':app', ':BLCS', ':pushlib', ':main'
 rootProject.name='BLcs'

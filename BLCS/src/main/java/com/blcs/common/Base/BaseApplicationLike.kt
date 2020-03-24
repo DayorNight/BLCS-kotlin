@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Process
 
 import androidx.multidex.MultiDex
+import com.alibaba.android.arouter.launcher.ARouter
 import com.blcs.common.BuildConfig
 import com.blcs.common.utils.AppUtils
 import com.blcs.common.utils.crash.CrashHandler
@@ -18,6 +19,7 @@ import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.tinker.entry.DefaultApplicationLike
 import me.jessyan.autosize.AutoSize
 import me.jessyan.autosize.AutoSizeConfig
+import me.jessyan.autosize.utils.AutoSizeLog
 
 /**
  * @Author BLCS
@@ -36,7 +38,7 @@ abstract class BaseApplicationLike(
     tinkerResultIntent
 ) {
 
-    abstract fun setBuglyAppId():String
+    abstract fun setBuglyAppId(): String
     override fun onCreate() {
         super.onCreate()
         screenAdapter()
@@ -44,11 +46,14 @@ abstract class BaseApplicationLike(
         CrashHandler.getInstance(application)
         //bugly
         initBugly()
+        //ARouter
+        ARouter.init(application)
     }
+
     /**
      * 屏幕适配初始化
      */
-    fun screenAdapter(){
+    fun screenAdapter() {
         AutoSize.initCompatMultiProcess(application)
         AutoSizeConfig.getInstance()
             .setCustomFragment(true)
@@ -59,6 +64,7 @@ abstract class BaseApplicationLike(
         //如果您的 Fragment 不允许屏幕旋转, 则可以将下面调用 AutoSize.autoConvertDensity() 的代码删除掉
         //AutoSize.autoConvertDensity(getActivity()!!, 1080f, true)
     }
+
     /**
      * 异常捕获
      */
@@ -69,7 +75,7 @@ abstract class BaseApplicationLike(
         val strategy = CrashReport.UserStrategy(application)
         strategy.isUploadProcess = processName == null || processName == application.packageName
         // 初始化Bugly
-        Bugly.init(application, setBuglyAppId(), BuildConfig.DEBUG,strategy)
+        Bugly.init(application, setBuglyAppId(), BuildConfig.DEBUG, strategy)
 //       1. 设置自定义Map参数
 //        自定义Map参数可以保存发生Crash时的一些自定义的环境信息。在发生Crash时会随着异常信息一起上报并在页面展示。
 //        CrashReport.putUserData(applicationContext, "userkey", "uservalue");
@@ -83,6 +89,7 @@ abstract class BaseApplicationLike(
 //        4.该用户本次启动后的异常日志用户ID都将是9527
 //        CrashReport.setUserId("9527");
     }
+
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     override fun onBaseContextAttached(base: Context?) {
         super.onBaseContextAttached(base)
@@ -99,4 +106,9 @@ abstract class BaseApplicationLike(
         application.registerActivityLifecycleCallbacks(callbacks)
     }
 
+
+    override fun onTerminate() {
+        super.onTerminate()
+        ARouter.getInstance().destroy()
+    }
 }

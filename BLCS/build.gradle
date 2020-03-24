@@ -3,6 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+kapt {   //Arouter
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -35,9 +40,6 @@ android {
         enabled = true
     }
 
-//    dexOptions{//分包异常添加
-//        preDexLibraries = false
-//    }
 }
 
 dependencies {
@@ -68,4 +70,6 @@ dependencies {
     api Dp.permiss
     kapt Dp.permiss_processor
 
+    api Dp.arouter
+    kapt Dp.arouter_processor
 }

@@ -10,10 +10,14 @@ apply from: 'tinker-support.gradle'
 //Bugly符号表配置
 apply plugin: 'com.huawei.agconnect'
 
-
 bugly {
     appId = 'fe108399e6' // 注册时分配的App ID
     appKey = 'dbcf9e61-6051-4d78-9359-583a04a1e14e' // 注册时分配的App Key
+}
+kapt {   //Arouter
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
 }
 android {
     compileSdkVersion As.compileSdkVersion
@@ -64,5 +68,10 @@ dependencies {
     implementation project(path: ':BLCS')
     kapt Dp.roomCompiler
     kapt Dp.permiss_processor
+    kapt Dp.arouter_processor
     implementation project(path: ':pushlib')
+
+    if (!isModule.toBoolean()) {
+        implementation project(':main')
+    }
 }

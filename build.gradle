@@ -16,6 +16,9 @@ buildscript {
         classpath "com.tencent.bugly:tinker-support:1.1.5"
         // 华为推送
         classpath 'com.huawei.agconnect:agcp:1.2.1.301'
+        // Arouter
+        classpath "com.alibaba:arouter-register:1.0.2"
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 

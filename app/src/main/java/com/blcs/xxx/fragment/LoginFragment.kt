@@ -5,8 +5,10 @@ import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.alibaba.android.arouter.launcher.ARouter
 import com.alibaba.fastjson.JSONObject
 import com.blcs.common.Base.BaseFragment
+import com.blcs.common.demo.UI_Constants
 import com.blcs.common.interfaces.HandleBackInterface
 import com.blcs.common.manager.AutoLoginManage
 import com.blcs.common.manager.AutoLoginManage.OnTokenResultListener
@@ -47,8 +49,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
                     toast("请输入6-12位由字母与数字组成的密码")
                     return
                 }
-                toast("登录成功")
-
+                ARouter.getInstance().build(UI_Constants.MAIN_MAIN_ACTIVITY).navigation()
                 if (rb_remember_psw.isChecked) {
                     val password = mView?.phone!! + "|" + mView?.passWord!!
                     SPUtils.put(activity,Sp_Constant.SP_REMEMBER_PASSWORD, password)
@@ -90,6 +91,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
             mView?.select = !TextUtils.isEmpty(mView?.phone) && mView?.phone!!.length > 0 && it.length > 0
         }
         autoLogin()
+
     }
 
     private  fun autoLogin() {

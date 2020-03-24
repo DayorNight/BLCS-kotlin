@@ -2,11 +2,13 @@ package com.blcs.xxx
 
 import android.app.Application
 import android.content.Intent
+import com.alibaba.android.arouter.launcher.ARouter
 import com.blcs.common.Base.BaseApplicationLike
 import com.blcs.common.utils.AppUtils
 import com.blcs.pushlib.utils.HMSAgent
 import com.blcs.pushlib.utils.XMAgent
 import com.blcs.xxx.comment.Api_Constant
+import me.jessyan.autosize.utils.AutoSizeLog.isDebug
 
 /**
  * @Author BLCS
@@ -36,5 +38,7 @@ class MyApplicationLike(
             HMSAgent.getInstance().getToken(application)
             XMAgent.register(application,Api_Constant.XM_PUSH_APPID,Api_Constant.XM_PUSH_APPKEY)
         }
+
+
     }
 }
