@@ -72,6 +72,6 @@ dependencies {
     implementation project(path: ':pushlib')
 
     if (!isModule.toBoolean()) {
-        implementation project(':main')
+        implementation project(':mainModule')
     }
 }

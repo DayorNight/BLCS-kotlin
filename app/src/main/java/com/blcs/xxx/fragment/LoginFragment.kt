@@ -58,7 +58,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
                 }
             }
             R.id.btn_to_fin -> toast("找回密码")
-            R.id.iv_wx -> toast("微信登录")
+            R.id.iv_wx ->   ARouter.getInstance().build(UI_Constants.MAIN_MAIN_ACTIVITY).navigation()
             R.id.iv_clean -> mView?.phone = null
             R.id.iv_show_psw -> {
                 et_psw.inputType = if (iv_show_psw.isSelected) 129 else 128

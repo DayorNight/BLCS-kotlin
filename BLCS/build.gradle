@@ -68,6 +68,9 @@ dependencies {
     api Dp.crashreportNdk
     api Dp.tinker
     api Dp.permiss
+    api Dp.baseAdapter
+    api Dp.magicIndicator
+    api Dp.banner
     kapt Dp.permiss_processor
 
     api Dp.arouter

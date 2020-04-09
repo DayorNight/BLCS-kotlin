@@ -1,5 +1,5 @@
 ext {
-    isModule = false
+    isModule = true
     As = [
             compileSdkVersion: 29,
             applicationId    : "com.blcs.xxx",
@@ -28,6 +28,9 @@ ext {
             huawei           : "4.0.2.300",
             arouter          : "1.5.0",
             arouter_processor: "1.2.2",
+            baseAdapter: "3.0.2",
+            magicIndicator: "1.5.0",
+            banner: "2.0.2",
     ]
 
     Dp = [
@@ -61,6 +64,12 @@ ext {
             huawei_push      : "com.huawei.hms:push:$Vs.huawei",
             //arouter : https://github.com/alibaba/ARouter/blob/master/README_CN.md
             arouter          : "com.alibaba:arouter-api:$Vs.arouter",
-            arouter_processor: "com.alibaba:arouter-compiler:$Vs.arouter_processor"
+            arouter_processor: "com.alibaba:arouter-compiler:$Vs.arouter_processor",
+            //BaseRecyclerViewAdapterHelper:    https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
+            baseAdapter :"com.github.CymChad:BaseRecyclerViewAdapterHelper:$Vs.baseAdapter",
+            //MagicIndicator:    https://github.com/hackware1993/MagicIndicator
+            magicIndicator : "com.github.hackware1993:MagicIndicator:$Vs.magicIndicator",
+            // Banner   :   https://github.com/youth5201314/banner
+            banner : "com.youth.banner:banner:$Vs.banner"
     ]
 }

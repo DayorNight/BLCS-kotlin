@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="expandedTitle">
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+    <style name="collapsedTitle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@android:color/white</item>
+
+    </style>
+</resources>

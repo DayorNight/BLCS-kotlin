@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.blcs.common.utils.L
 
 /**
  * A simple [Fragment] subclass.
@@ -18,9 +19,10 @@ abstract class BaseFragment<T : ViewDataBinding?> : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var  mBindLayout = DataBindingUtil.inflate<T>(inflater, setLayout(), container, false)
-        mView =mBindLayout
-        return  mBindLayout?.getRoot()
+        if (mView==null){
+            mView = DataBindingUtil.inflate<T>(inflater, setLayout(), container, false)
+        }
+        return  mView?.getRoot()
     }
     abstract fun setLayout():Int
     abstract fun initUI()
@@ -29,9 +31,7 @@ abstract class BaseFragment<T : ViewDataBinding?> : Fragment() {
         initUI()
     }
     override fun onDestroy() {
-
         super.onDestroy()
-        if(mView!=null) mView= null
+        mView?.unbind()
     }
-
 }

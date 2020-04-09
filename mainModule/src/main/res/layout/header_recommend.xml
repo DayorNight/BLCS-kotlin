@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="@dimen/space_line2"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题XXXXXXXXXXXXXX"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/sp_big1"
+        android:textColor="@color/text333"/>
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="@dimen/space_line"
+        android:textSize="@dimen/sp_small"
+        android:text="置顶"/>
+    <TextView
+        android:id="@+id/tv_subtitle"
+        style="@style/tv_stander"
+        app:layout_constraintLeft_toRightOf="@+id/tv_tip"
+        android:layout_marginLeft="@dimen/space_line"
+        app:layout_constraintTop_toTopOf="@+id/tv_tip"
+        android:textSize="@dimen/sp_small"
+        android:text="昵称  xx评论"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle"
+        android:layout_marginTop="@dimen/space_line2"
+        android:background="@color/gray_db"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
