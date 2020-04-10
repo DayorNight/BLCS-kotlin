@@ -24,6 +24,7 @@ android {
             //设置支持的SO库架构
             abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
+        buildConfigField "Boolean", "isModule", "${isModule}"
     }
 
     buildTypes {
@@ -72,7 +73,7 @@ dependencies {
     api Dp.magicIndicator
     api Dp.banner
     kapt Dp.permiss_processor
-
+    api Dp.LiteAVSDK
     api Dp.arouter
     kapt Dp.arouter_processor
 }

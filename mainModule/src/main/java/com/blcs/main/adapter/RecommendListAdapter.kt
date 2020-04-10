@@ -21,6 +21,7 @@ class RecommendListAdapter : BaseMultiItemQuickAdapter<RecommendDatas, BaseViewH
         addItemType(2, R.layout.adapter_recommend_list_article)
         addItemType(3, R.layout.adapter_recommend_list_shortvideo)
         addItemType(4, R.layout.adapter_recommend_list_live)
+        addItemType(5, R.layout.adapter_recommend_list_living)
         mAdapter = RecommendShortVideoAdapter()
     }
     override fun convert(holder: BaseViewHolder, item: RecommendDatas) {

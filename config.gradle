@@ -70,6 +70,8 @@ ext {
             //MagicIndicator:    https://github.com/hackware1993/MagicIndicator
             magicIndicator : "com.github.hackware1993:MagicIndicator:$Vs.magicIndicator",
             // Banner   :   https://github.com/youth5201314/banner
-            banner : "com.youth.banner:banner:$Vs.banner"
+            banner : "com.youth.banner:banner:$Vs.banner",
+            //腾讯直播: https://cloud.tencent.com/document/product/454/7877
+            LiteAVSDK: "com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release"
     ]
 }

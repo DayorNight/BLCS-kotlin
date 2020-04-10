@@ -91,7 +91,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
             mView?.select = !TextUtils.isEmpty(mView?.phone) && mView?.phone!!.length > 0 && it.length > 0
         }
         autoLogin()
-
     }
 
     private  fun autoLogin() {

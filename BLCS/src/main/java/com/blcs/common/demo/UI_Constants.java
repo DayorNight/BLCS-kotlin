@@ -7,4 +7,5 @@ package com.blcs.common.demo;
 public class UI_Constants {
     public static final String LOGIN_SETTING_ACTIVITY = "/login/SettingActivity";
     public static final String MAIN_MAIN_ACTIVITY = "/main/MainActivity";
+    public static final String LIVE_HOME_ACTIVITY = "/live/LiveHomeActivity";
 }

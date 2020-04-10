@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/space_line"
+    app:cardCornerRadius="@dimen/space_line2"
+    android:elevation="@dimen/space_line"
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_app512"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="@dimen/space_line2"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_line"
+            android:textSize="@dimen/standard_weak"
+            android:background="@drawable/bg_gray_radius_login"
+            android:text="颜值"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昵称   地址"
+            android:layout_marginTop="@dimen/space_line"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_big1"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
