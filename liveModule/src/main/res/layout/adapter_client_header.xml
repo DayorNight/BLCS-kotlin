@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/space_line"
+    android:paddingRight="@dimen/space_line">
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@mipmap/ic_default_avator"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:padding="2dp"
+        android:background="@drawable/bg_white_radius"
+        android:layout_gravity="bottom|center_horizontal"
+        android:textSize="10sp"
+        android:text="121"/>
+</FrameLayout>

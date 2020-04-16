@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LiveHomeActivity">
-
     <!--播放器-->
     <com.tencent.rtmp.ui.TXCloudVideoView
         android:id="@+id/video_view"
@@ -16,6 +15,7 @@
         android:visibility="gone"/>
     <!--直播界面操作按钮-->
     <com.blcs.livemodule.widget.LiveManageView
+        android:id="@+id/lmv_manager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

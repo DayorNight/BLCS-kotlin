@@ -15,4 +15,6 @@
 
     <color name="gray">#ff888888</color>
 
+    <!--transparen-->
+    <color name="alpha_5">#33000000</color>
 </resources>

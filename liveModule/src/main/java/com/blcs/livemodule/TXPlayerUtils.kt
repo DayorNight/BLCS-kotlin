@@ -7,8 +7,6 @@ import com.tencent.rtmp.ui.TXCloudVideoView
 import com.tencent.rtmp.TXLivePlayConfig
 
 
-
-
 /**
  * https://cloud.tencent.com/document/product/454/7886#step-8.3A-.E5.B1.8F.E5.B9.95.E6.88.AA.E5.9B.BE
  * @Author BLCS

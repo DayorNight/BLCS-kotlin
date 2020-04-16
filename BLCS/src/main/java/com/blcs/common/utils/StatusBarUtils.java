@@ -1,4 +1,5 @@
 package com.blcs.common.utils;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.view.WindowManager;
 
@@ -12,9 +13,9 @@ public class StatusBarUtils {
      * @param context
      */
     public static void setTransparent(Activity context){
-        context.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        WindowManager.LayoutParams lp = context.getWindow().getAttributes();
-        lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT;
-        context.getWindow().setAttributes(lp);
+            context.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            WindowManager.LayoutParams lp = context.getWindow().getAttributes();
+            lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT;
+            context.getWindow().setAttributes(lp);
     }
 }
