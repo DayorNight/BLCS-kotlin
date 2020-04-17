@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">BLCS</string>
+    <string name="dialog_input_text_hint">开启弹幕互动吧</string>
+
+    <!-- msgadapter -->
+    <item type="id" name="tag_first"></item>
+    <item type="id" name="tag_second"></item>
 </resources>

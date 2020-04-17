@@ -9,20 +9,25 @@ import com.blcs.common.demo.UI_Constants
 import com.blcs.common.utils.StatusBarUtils
 import com.blcs.livemodule.adapter.LiveListAdapter
 import kotlinx.android.synthetic.main.include_rv.*
+import org.jetbrains.anko.toast
 
 
 @Route(path = UI_Constants.LIVE_HOME_ACTIVITY)
 class LiveHomeActivity : BaseActivity() {
     var mAdapter = LiveListAdapter()
     val mutableListOf = mutableListOf(
-        "https://flv.6721.liveplay.now.qq.com/live/6721_c7e02d83267039e4fd870aed4f0f7195.flv",
-        "https://flv.6721.liveplay.now.qq.com/live/6721_c7e02d83267039e4fd870aed4f0f7195.flv",
-        "https://flv.6721.liveplay.now.qq.com/live/6721_c7e02d83267039e4fd870aed4f0f7195.flv")
+        "https://play.yinkehuyu.cn/prod/prod_514371.flv",
+        "https://play.yinkehuyu.cn/prod/prod_514371.flv",
+        "https://play.yinkehuyu.cn/prod/prod_514371.flv",
+        "https://play.yinkehuyu.cn/prod/prod_514371.flv",
+        "https://play.yinkehuyu.cn/prod/prod_514371.flv",
+        "https://play.yinkehuyu.cn/prod/prod_514371.flv")
     override fun setLayout() = R.layout.include_rv
     override fun initUI() {
 
         StatusBarUtils.setTransparent(this)
         initRv()
+
     }
 
     private fun initRv() {

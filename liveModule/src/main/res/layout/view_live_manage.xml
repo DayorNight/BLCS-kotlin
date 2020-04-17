@@ -1,131 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/space_line2"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="@dimen/space_line2">
     <!--用户信息-->
     <LinearLayout
         android:id="@+id/ll_user_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/space_line3"
-        android:gravity="center_vertical"
-        android:padding="2dp"
         android:background="@drawable/bg_transparen_radius"
-        android:orientation="horizontal">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/iv_avator"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/ic_default_avator"/>
+            android:src="@mipmap/ic_default_avator" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/space_line"
             android:layout_marginRight="@dimen/space_line"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/standard_work"
-                android:textColor="@android:color/white"
+                android:ellipsize="end"
                 android:ems="4"
                 android:singleLine="true"
-                android:ellipsize="end"
-                android:text="名字名字名字名字"/>
+                android:text="名字名字名字名字"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/standard_work" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/sp_small"
                 android:alpha="0.7"
+                android:text="签名"
                 android:textColor="@android:color/white"
-                android:text="签名"/>
+                android:textSize="@dimen/sp_small" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/tv_attention"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/standard_work"
-            android:textStyle="bold"
-            android:padding="@dimen/space_line"
             android:background="@drawable/bg_white_radius"
+            android:padding="@dimen/space_line"
+            android:text="关注"
             android:textColor="@color/colorPrimary"
-            android:text="关注"/>
+            android:textSize="@dimen/standard_work"
+            android:textStyle="bold" />
     </LinearLayout>
     <!--观众信息-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_client"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ll_user_info"
-        app:layout_constraintLeft_toRightOf="@+id/ll_user_info"
         android:layout_marginLeft="@dimen/space_line"
-        />
+        app:layout_constraintLeft_toRightOf="@+id/ll_user_info"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ll_user_info" />
     <!--小时榜-->
     <TextView
         android:id="@+id/tv_hours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="@+id/ll_user_info"
-        app:layout_constraintTop_toBottomOf="@+id/ll_user_info"
-        android:background="@drawable/bg_transparen_radius"
-        android:textColor="@android:color/white"
-        android:padding="@dimen/space_line"
         android:layout_margin="@dimen/space_line2"
-        android:text="小时榜"/>
+        android:background="@drawable/bg_transparen_radius"
+        android:padding="@dimen/space_line"
+        android:text="小时榜"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="@+id/ll_user_info"
+        app:layout_constraintTop_toBottomOf="@+id/ll_user_info" />
     <!--底部按钮-->
     <LinearLayout
         android:id="@+id/ll_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
         <TextView
             android:id="@+id/tv_input"
             style="@style/tv_stander"
-            app:layout_constraintLeft_toLeftOf="@+id/ll_user_info"
-            app:layout_constraintTop_toBottomOf="@+id/ll_user_info"
             android:background="@drawable/bg_transparen_radius"
-            android:textColor="@android:color/white"
             android:ems="8"
             android:padding="@dimen/space_line2"
-            android:text="说点什么..."/>
+            android:text="说点什么..."
+            android:textColor="@android:color/white"
+            app:layout_constraintLeft_toLeftOf="@+id/ll_user_info"
+            app:layout_constraintTop_toBottomOf="@+id/ll_user_info" />
+
         <View
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
+
         <ImageView
             android:id="@+id/iv_gift"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/space_line2"
-            android:src="@mipmap/ic_gift"/>
+            android:src="@mipmap/ic_gift" />
+
         <ImageView
             android:id="@+id/iv_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/space_line2"
-            android:src="@mipmap/ic_share"/>
+            android:src="@mipmap/ic_share" />
+
         <ImageView
             android:id="@+id/iv_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_close"/>
+            android:src="@mipmap/ic_close" />
     </LinearLayout>
+    <!--点赞动画-->
+
+    <com.blcs.livemodule.widget.living.like.TCHeartLayout
+        android:id="@+id/heart_layout"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:layout_marginBottom="@dimen/space_line"
+        app:layout_constraintBottom_toTopOf="@+id/ll_bottom"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_like"
+        android:layout_marginLeft="@dimen/space_line"
+        app:layout_constraintLeft_toLeftOf="@+id/heart_layout"
+        app:layout_constraintBottom_toBottomOf="@+id/heart_layout"
+        />
     <!--聊天信息-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_chat_info"
         android:layout_width="250dp"
         android:layout_height="200dp"
-        android:padding="@dimen/space_line2"
-        android:background="@drawable/bg_transparen_radius_20"
-        app:layout_constraintBottom_toTopOf="@+id/ll_bottom"
         android:layout_marginBottom="@dimen/space_line2"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        android:background="@drawable/bg_transparen_radius_20"
+        android:padding="@dimen/space_line2"
+        android:scrollbarStyle="outsideOverlay"
+        android:stackFromBottom="true"
+        android:transcriptMode="normal"
+        app:layout_constraintBottom_toTopOf="@+id/ll_bottom"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <!--弹幕-->
+    <master.flame.danmaku.ui.widget.DanmakuView
+        android:id="@+id/dv_danmaku"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <!--美颜弹窗-->
+    <com.tencent.liteav.demo.beauty.BeautyPanel
+        android:id="@+id/beauty_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
