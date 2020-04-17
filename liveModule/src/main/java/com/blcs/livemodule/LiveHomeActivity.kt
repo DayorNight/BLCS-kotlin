@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.include_rv.*
 class LiveHomeActivity : BaseActivity() {
     var mAdapter = LiveListAdapter()
     val mutableListOf = mutableListOf(
-        "https://play.yinkehuyu.cn/test/test_500795.flv",
+        "https://flv.6721.liveplay.now.qq.com/live/6721_c7e02d83267039e4fd870aed4f0f7195.flv",
         "https://flv.6721.liveplay.now.qq.com/live/6721_c7e02d83267039e4fd870aed4f0f7195.flv",
         "https://flv.6721.liveplay.now.qq.com/live/6721_c7e02d83267039e4fd870aed4f0f7195.flv")
     override fun setLayout() = R.layout.include_rv
