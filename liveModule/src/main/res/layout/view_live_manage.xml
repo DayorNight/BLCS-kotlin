@@ -84,7 +84,7 @@
     <!--底部按钮-->
     <LinearLayout
         android:id="@+id/ll_bottom"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -95,31 +95,61 @@
             android:id="@+id/tv_input"
             style="@style/tv_stander"
             android:background="@drawable/bg_transparen_radius"
-            android:ems="8"
             android:padding="@dimen/space_line2"
             android:text="说点什么..."
+            android:layout_marginRight="@dimen/space_line"
             android:textColor="@android:color/white"
-            app:layout_constraintLeft_toLeftOf="@+id/ll_user_info"
-            app:layout_constraintTop_toBottomOf="@+id/ll_user_info" />
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/iv_gift"
+            android:layout_weight="1"
+            />
+        <LinearLayout
+            android:id="@+id/ll_anchor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/space_line2"
-            android:src="@mipmap/ic_gift" />
-
-        <ImageView
-            android:id="@+id/iv_share"
+            android:visibility="gone"
+            android:layout_marginRight="@dimen/space_line">
+            <ImageView
+                android:id="@+id/iv_flashlight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/iv_flashlight" />
+            <ImageView
+                android:id="@+id/iv_reverse_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/space_line"
+                android:src="@mipmap/ic_reverse_camera" />
+            <ImageView
+                android:id="@+id/iv_beauty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/space_line"
+                android:src="@mipmap/ic_beauty" />
+            <ImageView
+                android:id="@+id/iv_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_voice" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_client"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/space_line2"
-            android:src="@mipmap/ic_share" />
+            android:visibility="gone"
+            >
+            <ImageView
+                android:id="@+id/iv_gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_marginRight="@dimen/space_line"
+                android:src="@mipmap/ic_gift" />
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/space_line"
+                android:src="@mipmap/ic_share" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/iv_close"
@@ -157,7 +187,6 @@
         android:background="@drawable/bg_transparen_radius_20"
         android:padding="@dimen/space_line2"
         android:scrollbarStyle="outsideOverlay"
-        android:stackFromBottom="true"
         android:transcriptMode="normal"
         app:layout_constraintBottom_toTopOf="@+id/ll_bottom"
         app:layout_constraintLeft_toLeftOf="parent" />
@@ -175,7 +204,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ll_bottom"
+        android:layout_marginBottom="@dimen/space_line"
         android:visibility="gone"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

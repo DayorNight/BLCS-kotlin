@@ -21,7 +21,9 @@ import com.blcs.livemodule.adapter.ChatListAdapter
 import com.blcs.livemodule.adapter.ClientHeaderAdapter
 import com.blcs.livemodule.common.msg.TCChatEntity
 import com.blcs.livemodule.common.msg.TCSimpleUserInfo
+import com.blcs.livemodule.living.MLVBLiveRoom
 import com.blcs.livemodule.widget.living.danmaku.TCDanmuMgr
+import com.tencent.rtmp.TXLivePusher
 import kotlinx.android.synthetic.main.view_live_manage.view.*
 import master.flame.danmaku.controller.IDanmakuView
 import org.jetbrains.anko.toast
@@ -47,6 +49,7 @@ class LiveManageView : ConstraintLayout, TCInputTextMsgDialog.OnTextSendListener
     constructor(ctx: Context) : super(ctx)
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
+    private lateinit var onClickListener: OnLiveClickListener
     private val mArrayListChatEntity = ArrayList<TCChatEntity>() // 消息列表集合
     private val mHandler = Handler(Looper.getMainLooper())
     private var screenWidth: Int? = null
@@ -54,10 +57,12 @@ class LiveManageView : ConstraintLayout, TCInputTextMsgDialog.OnTextSendListener
     private var chatListAdapter = ChatListAdapter()
     private var mDanmuMgr: TCDanmuMgr? = null
     private var activity: Activity? = null
+    private var isClient: Boolean = true
     private var mInputTextMsgDialog: TCInputTextMsgDialog?=null
 
     init {
         activity = context as Activity
+
         screenWidth = ScreenUtils.getScreenWidth(context)
         LayoutInflater.from(context).inflate(R.layout.view_live_manage, this, true)
         /*观众列表*/
@@ -66,7 +71,9 @@ class LiveManageView : ConstraintLayout, TCInputTextMsgDialog.OnTextSendListener
         rv_client.adapter = mAvatarListAdapter
         mAvatarListAdapter.setNewInstance(mutableListOf(1, 2, 3, 4))
         /*聊天列表*/
-        rv_chat_info.layoutManager = LinearLayoutManager(context)
+        val linearLayoutManager = LinearLayoutManager(context)
+        linearLayoutManager.stackFromEnd = true
+        rv_chat_info.layoutManager = linearLayoutManager
         rv_chat_info.adapter = chatListAdapter
         initClick()
 
@@ -76,6 +83,10 @@ class LiveManageView : ConstraintLayout, TCInputTextMsgDialog.OnTextSendListener
         /*消息输入框*/
         mInputTextMsgDialog = TCInputTextMsgDialog(activity, R.style.InputDialog)
         mInputTextMsgDialog?.setmOnTextSendListener(this)
+
+        /*UI*/
+        ll_client.visibility = if(isClient) View.VISIBLE else View.GONE
+        ll_anchor.visibility = if(isClient) View.GONE else View.VISIBLE
     }
 
     private fun initDanmaku() {
@@ -92,7 +103,7 @@ class LiveManageView : ConstraintLayout, TCInputTextMsgDialog.OnTextSendListener
      */
     private fun initClick() {
         /*关闭页面*/
-        iv_close.setOnClickListener { context.toast("关闭页面") }
+        iv_close.setOnClickListener {   onClickListener?.finish()  }
         /*分享*/
         iv_share.setOnClickListener { context.toast("分享") }
         /*礼物*/
@@ -110,6 +121,22 @@ class LiveManageView : ConstraintLayout, TCInputTextMsgDialog.OnTextSendListener
 
         /*点赞*/
         iv_like.setOnClickListener { heart_layout.addFavor() }
+        /*闪光灯*/
+        iv_flashlight.setOnClickListener {
+            onClickListener?.flashlight(true)
+        }
+        /*反转相机*/
+        iv_reverse_camera.setOnClickListener {
+            onClickListener?.switchCamera()
+        }
+        /*美颜*/
+        iv_beauty.setOnClickListener {
+            beauty_panel.visibility =  if (beauty_panel.visibility== View.VISIBLE) View.GONE else View.VISIBLE
+        }
+        /*声控*/
+        iv_voice.setOnClickListener {
+
+        }
     }
 
     /**
@@ -228,4 +255,14 @@ class LiveManageView : ConstraintLayout, TCInputTextMsgDialog.OnTextSendListener
         mDanmuMgr?.destroy()
         mDanmuMgr = null
     }
+
+    interface OnLiveClickListener{
+        fun  flashlight(enable: Boolean)
+        fun  switchCamera()
+        fun  finish()
+    }
+    fun setOnLiveClickListener(listener: OnLiveClickListener){
+        onClickListener = listener
+    }
+
 }

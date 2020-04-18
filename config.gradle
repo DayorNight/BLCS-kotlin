@@ -1,5 +1,5 @@
 ext {
-    isModule = true
+    isModule = false
     As = [
             compileSdkVersion: 29,
             applicationId    : "com.blcs.xxx",
