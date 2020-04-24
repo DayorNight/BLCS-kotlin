@@ -75,5 +75,14 @@ dependencies {
     kapt Dp.permiss_processor
     api Dp.LiteAVSDK
     api Dp.arouter
+    api Dp.Agentweb
     kapt Dp.arouter_processor
+    api Dp.danmaku
+    api Dp.glide
+    kapt Dp.glideCompiler
+    api Dp.retrofit2
+    api Dp.okhttp3
+    api Dp.fastjson
+    api Dp.gson
+
 }

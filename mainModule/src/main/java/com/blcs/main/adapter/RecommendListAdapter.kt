@@ -1,9 +1,11 @@
 package com.blcs.main.adapter
 
+import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.blcs.main.R
+import com.blcs.main.ShortVideoActivity
 import com.blcs.main.bean.RecommendDatas
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -26,14 +28,23 @@ class RecommendListAdapter : BaseMultiItemQuickAdapter<RecommendDatas, BaseViewH
     }
     override fun convert(holder: BaseViewHolder, item: RecommendDatas) {
         when(item.itemType){
-            0 -> {}
-            1 -> {}
-            2 -> {}
+            0 -> {
+
+            }
+            1 -> {
+
+            }
+            2 -> {
+
+            }
             3 -> {
                 val rv = holder.getView<RecyclerView>(R.id.rv_short_video)
                 rv.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
                 rv.adapter = mAdapter
                 mAdapter.setNewInstance(mutableListOf("1","2","3","4","5","6"))
+                mAdapter.setOnItemClickListener { _, _, _ ->
+                    context.startActivity(Intent(context, ShortVideoActivity::class.java))
+                }
             }
             4 -> {}
         }

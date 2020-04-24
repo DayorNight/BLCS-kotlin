@@ -1,5 +1,5 @@
 ext {
-    isModule = false
+    isModule = true
     As = [
             compileSdkVersion: 29,
             applicationId    : "com.blcs.xxx",
@@ -28,9 +28,16 @@ ext {
             huawei           : "4.0.2.300",
             arouter          : "1.5.0",
             arouter_processor: "1.2.2",
-            baseAdapter: "3.0.2",
-            magicIndicator: "1.5.0",
-            banner: "2.0.2",
+            baseAdapter      : "3.0.2",
+            magicIndicator   : "1.5.0",
+            banner           : "2.0.2",
+            Agentweb         : "4.0.2",
+            glide            : "4.11.0",
+            danmaku          : "0.9.25",
+            retrofit2        : "2.8.1",
+            okhttp3          : "3.8.1",
+            fastjson         : "1.2.61",
+            gson             : "2.8.6",
     ]
 
     Dp = [
@@ -66,12 +73,27 @@ ext {
             arouter          : "com.alibaba:arouter-api:$Vs.arouter",
             arouter_processor: "com.alibaba:arouter-compiler:$Vs.arouter_processor",
             //BaseRecyclerViewAdapterHelper:    https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
-            baseAdapter :"com.github.CymChad:BaseRecyclerViewAdapterHelper:$Vs.baseAdapter",
+            baseAdapter      : "com.github.CymChad:BaseRecyclerViewAdapterHelper:$Vs.baseAdapter",
             //MagicIndicator:    https://github.com/hackware1993/MagicIndicator
-            magicIndicator : "com.github.hackware1993:MagicIndicator:$Vs.magicIndicator",
+            magicIndicator   : "com.github.hackware1993:MagicIndicator:$Vs.magicIndicator",
             // Banner   :   https://github.com/youth5201314/banner
-            banner : "com.youth.banner:banner:$Vs.banner",
+            banner           : "com.youth.banner:banner:$Vs.banner",
             //腾讯直播: https://cloud.tencent.com/document/product/454/7877
-            LiteAVSDK: "com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release"
+            LiteAVSDK        : "com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release",
+            // AgentWeb:https://github.com/Justson/AgentWeb 一款webView封装框架
+            Agentweb         : "com.just.agentweb:agentweb:$Vs.Agentweb",
+
+            //Glide
+            glideCompiler    : "com.github.bumptech.glide:compiler:$Vs.glide",
+            glide            : "com.github.bumptech.glide:glide:$Vs.glide",
+            //DanmakuFlameMaster 弹幕
+            danmaku          : "com.github.ctiao:DanmakuFlameMaster:$Vs.danmaku",
+            //retrofit2
+            retrofit2        : "com.squareup.retrofit2:retrofit:$Vs.retrofit2",
+            //okhttp3
+            okhttp3          : "com.squareup.okhttp3:logging-interceptor:$Vs.okhttp3",
+            //GSON
+            fastjson         : "com.alibaba:fastjson:$Vs.fastjson",
+            gson             : "com.google.code.gson:gson:$Vs.gson",
     ]
 }

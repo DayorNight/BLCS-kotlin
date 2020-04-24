@@ -11,12 +11,14 @@
     <color name="gray_co">#ffc0c0c0</color>
     <color name="gray_db">#ffdbdbdb</color>
     <color name="green">#ff08AA06</color>
+    <color name="yellow">#FFFFFF00</color>
     <color name="text333">#ff333333</color>
 
     <color name="gray">#ff888888</color>
 
     <!--transparen-->
-    <color name="alpha_5">#33000000</color>
+    <color name="alpha_black_5">#33000000</color>
+    <color name="alpha_white_5">#33ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
 </resources>

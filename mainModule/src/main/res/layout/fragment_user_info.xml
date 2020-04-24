@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- 未实现 阻尼效果 -->
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:orientation="vertical">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:collapsedTitleTextAppearance="@style/collapsedTitle"
+                    app:contentScrim="@color/black"
+                    app:expandedTitleTextAppearance="@style/expandedTitle"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                    <!--用户信息-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/black"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/ic_app512"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_marginLeft="@dimen/space_line2"
+                                android:layout_marginBottom="@dimen/space_line"
+                                android:src="@mipmap/ic_default_avator" />
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/space_line2"
+                                android:background="@drawable/shape_gray_red"
+                                android:padding="@dimen/space_line"
+                                android:text="+关注"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_big1" />
+                        </LinearLayout>
+
+                        <!--姓名 XXX号-->
+                        <TextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/space_line2"
+                            android:text="@string/app_name"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_big6"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/space_line2"
+                            android:text="xxx号：100000000"
+                            android:textColor="@color/white" />
+                        <!--个性签名-->
+                        <TextView
+                            android:id="@+id/tv_signature"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dp_40"
+                            android:ellipsize="end"
+                            android:maxLines="3"
+                            android:padding="@dimen/space_line2"
+                            android:text="个性签名个性签名个个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_big1" />
+                        <!--年龄 地址  学校-->
+                        <LinearLayout
+                            android:id="@+id/ll_user_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/space_line2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/space_line"
+                                android:background="@drawable/shape_gray_white"
+                                android:drawableLeft="@mipmap/ic_boy"
+                                android:padding="@dimen/space_line"
+                                android:text="100岁"
+                                android:textColor="@color/gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/space_line"
+                                android:background="@drawable/shape_gray_white"
+                                android:padding="@dimen/space_line"
+                                android:text="福建·厦门"
+                                android:textColor="@color/gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/shape_gray_white"
+                                android:padding="@dimen/space_line"
+                                android:text="中国大学"
+                                android:textColor="@color/gray" />
+
+                        </LinearLayout>
+                        <!--获赞 关注 粉丝-->
+                        <LinearLayout
+                            android:id="@+id/ll_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/space_line2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/space_line"
+                                android:text="1000W"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_big1"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/space_line3"
+                                android:text="获赞"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/sp_big1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/space_line"
+                                android:text="1000W"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_big1"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/space_line3"
+                                android:text="关注"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/sp_big1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/space_line"
+                                android:text="1000W"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_big1"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="粉丝"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/sp_big1" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <!--标题-->
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/def_height"
+                        app:contentInsetStart="0dp"
+                        app:layout_collapseMode="pin">
+
+                        <LinearLayout
+                            android:id="@+id/ll_user_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/def_height"
+                            android:gravity="center_vertical">
+                            <!--设置-->
+                            <ImageView
+                                android:id="@+id/iv_back"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/space_line2"
+                                android:src="@mipmap/ic_back_white" />
+
+                            <TextView
+                                style="@style/tv_stander"
+                                android:layout_width="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="@string/app_name"
+                                android:textColor="@color/white" />
+
+                            <ImageView
+                                android:id="@+id/iv_setting"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/space_line2"
+                                android:src="@mipmap/ic_setting" />
+                        </LinearLayout>
+                    </androidx.appcompat.widget.Toolbar>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                <!--导航栏-->
+                <net.lucode.hackware.magicindicator.MagicIndicator
+                    android:id="@+id/indicator_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_navigator_height"
+                    android:background="@color/black" />
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <!--列表-->
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

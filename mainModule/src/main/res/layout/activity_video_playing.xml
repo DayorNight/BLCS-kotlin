@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--视频播放器-->
+        <com.tencent.liteav.demo.play.SuperPlayerView
+            android:id="@+id/player_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+        <!--用户信息-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_line2">
+            <ImageView
+                android:id="@+id/iv_avator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@mipmap/ic_default_avator"/>
+            <TextView
+                android:id="@+id/tv_name"
+                style="@style/tv_stander"
+                android:textColor="@color/text333"
+                app:layout_constraintTop_toTopOf="@+id/iv_avator"
+                app:layout_constraintLeft_toRightOf="@+id/iv_avator"
+                android:layout_marginLeft="@dimen/space_line"
+                android:text="@string/app_name"/>
+            <TextView
+                android:id="@+id/tv_fans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100万粉丝"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_avator"/>
+
+            <TextView
+                android:id="@+id/tv_attention"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:paddingLeft="@dimen/space_line2"
+                android:paddingRight="@dimen/space_line2"
+                android:paddingTop="@dimen/space_line"
+                android:paddingBottom="@dimen/space_line"
+                android:textColor="@color/white"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="关注"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--推荐列表-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</layout>

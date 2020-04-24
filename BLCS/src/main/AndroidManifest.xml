@@ -13,6 +13,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--点播播放器悬浮窗权限-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application android:networkSecurityConfig="@xml/network_security_config">
         <provider
@@ -23,10 +25,13 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider> <!-- 全局异常捕获 -->
+        </provider>
+        <activity android:name=".demo.WebActivity"/>
+        <!-- 全局异常捕获 -->
         <activity
             android:name=".utils.crash.DefaultErrorActivity"
             android:process=":error_activity" />
+
 
         <!--        阿里 一键登录  https://help.aliyun.com/document_detail/144231.html?spm=a2c4g.11186623.6.557.3e142dd4obdAsa-->
         <!--联通电信授权页-->
@@ -56,7 +61,6 @@
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@android:style/Theme.Translucent" />
-
 
     </application>
 

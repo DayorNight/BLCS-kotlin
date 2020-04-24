@@ -4,6 +4,8 @@
 
     <application>
         <activity android:name=".MainActivity" android:launchMode="singleTask" android:theme="@style/AppTheme"/>
+        <activity android:name=".VideoPlayingActivity"/>
+        <activity android:name=".ShortVideoActivity"/>
     </application>
 
 </manifest>

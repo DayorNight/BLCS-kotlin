@@ -60,11 +60,6 @@ dependencies {
     kapt Dp.roomCompiler
     kapt Dp.permiss_processor
     kapt Dp.arouter_processor
-    implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.25'
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
-    implementation 'com.alibaba:fastjson:1.2.61'
-    implementation 'com.google.code.gson:gson:2.8.6'
+    kapt Dp.glideCompiler
+
 }
